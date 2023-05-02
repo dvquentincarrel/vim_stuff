@@ -22,6 +22,7 @@ set breakindent " If line wraps, it does so using current indent level
 set background=dark " Used for color themes with different omodes
 set cursorline " Highlights line cursor is currently on
 set scrolloff=5 " How many lines between cursor and edge
+highlight Normal ctermbg=None
 
 " Editor options
 filetype plugin indent on

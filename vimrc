@@ -122,4 +122,3 @@ endfunction
 
 let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox 
-hi Normal ctermbg=None
