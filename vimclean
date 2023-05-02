@@ -1,0 +1,4 @@
+#!/bin/bash
+# Cleans old undodir files and views
+THRESHOLD=${1:-30} # Anything last edited more than 30 days ago by default
+find ~/.vim/undodir ~/.vim/undodir -mtime +$THRESHOLD -exec rm -v {} \;
