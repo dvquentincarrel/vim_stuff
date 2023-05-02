@@ -53,6 +53,7 @@ set clipboard^=unnamedplus
 set ttimeout " time out for key codes
 set ttimeoutlen=100 " wait up to 100ms after Esc for special key
 set nrformats-=octal " Ignore octal on <C-a> & <C-x>
+set backspace=indent,eol,start " Allows backspacing over everything
 
 " External options
 set grepformat=%f\ +%l\ :\ %m " Adapted to parsing coffin output
