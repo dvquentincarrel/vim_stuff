@@ -29,6 +29,7 @@ command -bar Inject w | !dataer inject
 command MI Make | silent Inject | redraw!
 command -range Dictify :'<,'>norm I'ea'yi'$a : ,hp
 command Lint call Lint()
+command Scrub call prop_clear(1, getbufinfo(bufnr(""))[0]['linecount']) " Removes all virtual text from current buffer
 
 
 function! LineTabTransfer(source_tab_nb, dest_tab_nb)
@@ -118,7 +119,6 @@ function! Lint()
 		norm w
 	endif
 endfunction
-
 
 let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox 
