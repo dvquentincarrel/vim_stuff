@@ -36,6 +36,7 @@ function! CommonAbbr()
 		inoreabbrev <buffer> obutton <button dynamic_string="global_vars.t_" onchange=""/>
 		inoreabbrev <buffer> fbutton <button dynamic_string="global_vars.t_" type="action" f_to_empty="[]"/>
 		inoreabbrev <buffer> tbutton <button dynamic_string="global_vars.t_" type="transition" page=""/>
+		inoreabbrev <buffer> pbutton <button string="PDB" onchange="DEBUG_oc_pdb" style="{'background':'coral'}"/>
 		elseif &filetype == 'jsp' || &filetype == 'html'
 		inoreabbrev <buffer> htmlbase 
 			\<html>
