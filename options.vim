@@ -11,6 +11,7 @@ set undofile " Undo history persistence
 set undodir=$CONFIG/undodir/
 set belloff=all " Disables the bell
 set wildmenu " display completion matches in a status line
+set mouse=a " Mouse support
 
 " Display
 syntax enable
@@ -22,6 +23,7 @@ set breakindent " If line wraps, it does so using current indent level
 set background=dark " Used for color themes with different omodes
 set cursorline " Highlights line cursor is currently on
 set scrolloff=5 " How many lines between cursor and edge
+set ruler " show the cursor position all the time
 highlight Normal ctermbg=None
 
 " Editor options
