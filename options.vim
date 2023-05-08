@@ -8,7 +8,9 @@ set shell=/bin/bash
 set timeoutlen=500
 set title " Automatically changes title of window to &titlestring
 set undofile " Undo history persistence
-set undodir=$CONFIG/undodir/
+if !has('nvim')
+    set undodir=$CONFIG/undodir
+endif
 set belloff=all " Disables the bell
 set wildmenu " display completion matches in a status line
 set mouse=a " Mouse support
@@ -50,7 +52,6 @@ set spelllang=fr " For spell checking
 set spelloptions=camel " Supports spell checking on camelCased wordGroups
 set title " Automatically changes title of window to &titlestring
 set undofile " Undo history persistence
-set undodir=$CONFIG/undodir
 set clipboard^=unnamedplus
 set ttimeout " time out for key codes
 set ttimeoutlen=100 " wait up to 100ms after Esc for special key
@@ -63,9 +64,6 @@ set grepprg=coffin\ -c
 
 " Markdown plugin
 let g:markdown_minlines = 250 " Number of lines to look around for markdown syntax context with markdown plugin
-
-" ALE plugin
-let g:ale_enabled = 0 " ALE is used for LSP
 
 " Keywords-mod "plugin"
 let g:und_kw = 1 " Used to toggle underscore as a keyword
