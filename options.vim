@@ -50,8 +50,6 @@ set splitbelow " New vertical splits default to being at the bottom
 set splitright " New splits default to being put on the right
 set spelllang=fr " For spell checking
 set spelloptions=camel " Supports spell checking on camelCased wordGroups
-set title " Automatically changes title of window to &titlestring
-set undofile " Undo history persistence
 set clipboard^=unnamedplus
 set ttimeout " time out for key codes
 set ttimeoutlen=100 " wait up to 100ms after Esc for special key
