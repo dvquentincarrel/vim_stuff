@@ -44,7 +44,8 @@ nnoremap <leader>k. :call ToggleDotKword()<cr>
 nnoremap <leader>r :set rnu!<cr>
 nnoremap <leader>t% :call TagJump()<cr>
 nnoremap gf :e <cfile><CR>
-nnoremap <leader>gf :tabe <cfile><CR>
+nnoremap <leader>gf <C-w>gf
+nnoremap <leader>gF <C-w>gF
 nnoremap <leader>c c
 nnoremap <expr> c v:register =~ '[\*+]' ? '""c' : 'c'
 nnoremap <expr> C v:register =~ '[\*+]' ? '""C' : 'C'
