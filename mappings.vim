@@ -34,7 +34,6 @@ nnoremap ]q :cn<Cr>
 nnoremap <A-Down> :m+1<cr>
 nnoremap <A-Up> :m-2<CR>
 nnoremap <bs> :set hls!<cr>
-nnoremap <C-w>c :Cpfile<cr><cr>:redraw!<cr>:echo "Copied"<cr>
 nnoremap <C-d>c :TDelta<cr>kJa= <esc>
 nnoremap <C-d>c+ :TAdd<cr>kJa= <esc>
 nnoremap <C-w>o :tabedit %<cr>
@@ -46,6 +45,7 @@ nnoremap <leader>r :set rnu!<cr>
 nnoremap <leader>t% :call TagJump()<cr>
 nnoremap gf :e <cfile><CR>
 nnoremap <leader>gf :tabe <cfile><CR>
+nnoremap <leader>c c
 nnoremap <expr> c v:register =~ '[\*+]' ? '""c' : 'c'
 nnoremap <expr> C v:register =~ '[\*+]' ? '""C' : 'C'
 nnoremap <expr> s v:register =~ '[\*+]' ? '""s' : 's'

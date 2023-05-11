@@ -20,7 +20,6 @@ command Vimrc tabnew ~/.vim/vimrc
 command TDelta exec "read !calc_duration ". getline(".")
 command TAdd exec "read !calc_duration -m add ". getline(".")
 command -nargs=? Lorem read !lorem <args> 
-command Cpfile !cat % | xclip -sel c
 command WW w !sudo tee %
 command W w
 command Splitattrs s/<\w* /&\r/ | s/" /"\r/g | s/\/\?>/\r&/
