@@ -6,6 +6,7 @@ This repo stores (n)vim config files, along with a list of the plugins used.
 + [NERDTree](https://github.com/preservim/nerdtree)
 + [fugitive](https://github.com/tpope/vim-fugitive)
 + [gruvbox](https://github.com/morhetz/gruvbox)
++ [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 + [vim-gfm by rhysd](https://github.com/rhysd/vim-gfm-syntax)
 
 ## Setting up
