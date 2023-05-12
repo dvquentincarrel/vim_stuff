@@ -4,6 +4,6 @@ source ~/.vim/vimrc
 
 augroup TreeSitter
     autocmd!
-    autocmd FileType * lua vim.treesitter.start()
+    autocmd FileType *.py,*.sh,*.vim,*.json lua vim.treesitter.start()
 augroup END
 
