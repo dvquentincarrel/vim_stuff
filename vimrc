@@ -59,7 +59,7 @@ endfunction
 
 function! CommentLine()
     if &filetype == 'xml' || &filetype == 'html' || &filetype == 'markdown'
-        nmap <buffer> <leader># I<!--<C-o>$--><esc><<
+        nmap <buffer> <leader># I<!-- <C-o>$ --><esc><<
         vmap <buffer> <leader># <esc>'<O<!--<esc>'>o--><esc>
     else
     endif
