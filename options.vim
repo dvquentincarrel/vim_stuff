@@ -14,6 +14,7 @@ endif
 set belloff=all " Disables the bell
 set wildmenu " display completion matches in a status line
 set mouse=a " Mouse support
+set wildignore+=*.pyc,node_modules
 
 " Display
 syntax enable
@@ -72,3 +73,6 @@ let g:netrw_banner = 0 " No banner
 let g:netrw_winsize = 85 " No half-half
 let g:netrw_liststyle = 3 " Tree list
 let g:netrw_list_hide='\(^\|\s\s\)\zs\.\S\+' " Hides hidden files
+
+" NerdTREE plugin
+let NERDTreeRespectWildIgnore=1
