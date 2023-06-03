@@ -56,7 +56,9 @@ augroup ft_adapt
 	autocmd FileType help setlocal number
 augroup END
 
-augroup keep_clip
-	" Keeps clipboard on vim exit
-	autocmd VimLeave * call system("xclip -sel c", getreg('+'))
-augroup END
+if !has('nvim')
+    augroup keep_clip
+        " Keeps clipboard on vim exit
+        autocmd VimLeave * call system("xclip -sel c", getreg('+'))
+    augroup END
+endif
