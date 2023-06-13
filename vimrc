@@ -120,5 +120,28 @@ function! Lint()
 	endif
 endfunction
 
+" Prompts the user for a string to surround its selection with
+function! VisSurround(type) range
+    let text = input('Value: ')
+    " Go to start of selection, prepend value. Go to end of selection, append value
+    set paste
+    if a:type == "inline"
+        if text == " <"
+            norm `>a>`<i<
+        elseif text == " ("
+            norm `>a)`<i(
+        elseif text == " ["
+            norm `>a]`<i[
+        elseif text == " {"
+            norm `>a}`<i{
+        else
+            norm `<i=text`>a=text
+        endif
+    elseif a:type == "around"
+        norm '<0O=text'>0o=text
+    endif
+    set nopaste
+endfunction
+
 let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox 

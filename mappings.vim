@@ -26,6 +26,8 @@ vnoremap <tab> >gv
 vnoremap <S-tab> <gv
 vnoremap <C-d>c+ :!calc_duration -m sum<cr>
 vnoremap <leader>col :!column -t<cr>
+vnoremap s :call VisSurround("inline")<cr>
+vnoremap S :call VisSurround("around")<cr>
 
 nnoremap <F2> :NERDTreeToggle<cr>
 nnoremap <F5> <Esc>:Make<cr>
