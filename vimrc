@@ -111,6 +111,9 @@ function! Lint()
 	lclose
 	if &filetype=='xml'
 		lex system('xmllint --noout '.expand('%'))
+    elseif &filetype=='python'
+        " TODO: see if there's no issues outside of work
+        lex system('pylint -E -dE0401 -dE1101 --output-format=parseable '.expand('%:p'))
 	endif
 	if v:shell_error == 0
 		echo "no error"
