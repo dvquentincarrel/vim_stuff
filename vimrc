@@ -30,6 +30,8 @@ command -range Dictify :'<,'>norm I'ea'yi'$a : ,hp
 command Lint call Lint()
 command Scrub call prop_clear(1, getbufinfo(bufnr(""))[0]['linecount']) " Removes all virtual text from current buffer
 command -nargs=? -bar Tabs set tabstop=<args> | set shiftwidth=<args>
+command -nargs=1 -bar Read redir @" | silent <args> | redir END
+command -nargs=1 Tread Read <args> | tabe | put \"
 
 
 function! LineTabTransfer(source_tab_nb, dest_tab_nb)
