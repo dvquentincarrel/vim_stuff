@@ -32,7 +32,8 @@ command Scrub call prop_clear(1, getbufinfo(bufnr(""))[0]['linecount']) " Remove
 command -nargs=? -bar Tabs set tabstop=<args> | set shiftwidth=<args>
 command -nargs=1 -bar Read redir @" | silent <args> | redir END
 command -nargs=1 Tread Read <args> | tabe | setl buftype=nofile | put \"
-command DiffDisk call DiffDisk()
+" Diffs current buffer with its on-disk version for the times you've messed up (yes, this is :DiffOrig)
+command DiffDisk diffthis | vnew | read ++edit # | setl buftype=nofile | 0d_ | diffthis
 
 
 function! LineTabTransfer(source_tab_nb, dest_tab_nb)
@@ -147,13 +148,6 @@ function! VisSurround(type) range
         norm '<0O=text'>0o=text
     endif
     set nopaste
-endfunction
-
-" Diffs current buffer with its on-disk version for the times you've messed up
-function! DiffDisk()
-    diffthis
-    vne | read # | setl buftype=nofile | norm ggdd
-    diffthis
 endfunction
 
 let g:gruvbox_guisp_fallback = "bg"

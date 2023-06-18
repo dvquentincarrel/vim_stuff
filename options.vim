@@ -76,3 +76,4 @@ let g:netrw_list_hide='\(^\|\s\s\)\zs\.\S\+' " Hides hidden files
 
 " NerdTREE plugin
 let NERDTreeRespectWildIgnore=1
+let NERDTreeMouseMode=3
