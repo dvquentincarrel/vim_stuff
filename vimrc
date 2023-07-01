@@ -49,9 +49,8 @@ endfunction
 function! ExecBind()
 	" Makes <F6> run the current file, and <F7> run in debugger (if applicable)
 	if &filetype == 'markdown'
-		nnoremap <buffer> <F6> :exec 'silent! !cmark-gfm -e tasklist --unsafe "%:p" \| sed s/disabled=\"\"// > /tmp/%:r.html && firefox --new-window /tmp/%:r.html' \| redraw!<cr>
-		nnoremap <buffer> <F8> :exec 'silent! !cmark-gfm -e tasklist --unsafe "%:p" \| sed s/disabled=\"\"// > %:r.html && firefox %:r.html' \| redraw!<cr>
-		" nnoremap <F6> :exec 'silent! !cmark-gfm --unsafe "%:p" > /tmp/html_md.html && firefox --new-window /tmp/html_md.html' \| redraw!<cr>
+		nnoremap <buffer> <F6> :exec 'silent !makemd %' \| redraw!<cr>
+		nnoremap <buffer> <F8> :exec 'silent !makemd -k %' \| redraw!<cr>
 	elseif &filetype == 'python'
 		nnoremap <buffer> <F6> :tab term python -i "%:p"<cr>
 	elseif &filetype == 'bash'
