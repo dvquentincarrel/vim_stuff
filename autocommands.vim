@@ -1,10 +1,3 @@
-" augroup DEBUG
-" 	autocmd!
-" 	au TextYankPost * {
-" 	}
-" augroup END
-
-
 " augroup auto_fdc
 " 	autocmd!
 " 	let g:auto_fdc = 1
@@ -32,13 +25,6 @@ augroup mem_folds
 	autocmd BufRead * silent! loadview
 augroup END
 
-" DEPRECATED. TODO: nice implmentation which checks if compiled with acd, and uses that otherwise
-" augroup cur_cd
-" 	" Automatically changes cwd to that of the current buffer
-" 	autocmd!
-" 	autocmd BufEnter * silent! cd %:h
-" augroup END
-
 augroup ft_adapt
 	" Automatically adapts to the current filetype by
 	" settings the compiler, how to run the file, and
@@ -54,6 +40,12 @@ augroup ft_adapt
 	autocmd BufEnter * call CommonAbbr()
 	autocmd BufEnter * call CommentLine()
 	autocmd FileType help setlocal number
+augroup END
+
+augroup no_chevron
+    " Fixes the times you fat-finger your way into ':w<'
+    autocmd!
+    autocmd BufWritePost < w | silent !rm '<' 
 augroup END
 
 if !has('nvim')
