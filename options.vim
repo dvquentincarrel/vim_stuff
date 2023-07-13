@@ -25,13 +25,13 @@ set linebreak " Only breaks long line after last word char
 set breakindent " If line wraps, it does so using current indent level
 set background=dark " Used for color themes with different omodes
 set cursorline " Highlights line cursor is currently on
-set scrolloff=5 " How many lines between cursor and edge
+set scrolloff=2 " How many lines between cursor and edge
+set sidescrolloff=5 " How many lines between cursor and horizontal edge
 set ruler " show the cursor position all the time
 highlight Normal ctermbg=None
 
 " Editor options
 filetype plugin indent on
-set acd " Changes cwd based on current buffer
 set ignorecase " Search is case-insensitive by default
 set smartcase " Search becomes case-sensitive if uppcase letters are used
 set hlsearch " Highlights all match of current search pattern
@@ -60,6 +60,14 @@ set backspace=indent,eol,start " Allows backspacing over everything
 " External options
 set grepformat=%f\ +%l\ :\ %m " Adapted to parsing coffin output
 set grepprg=coffin\ -c
+" Correctly highlight $() and other modern affordances in filetype=sh.
+if !exists('g:is_posix') && !exists('g:is_bash') && !exists('g:is_kornshell') && !exists('g:is_dash')
+  let g:is_posix = 1
+endif
+" Enable the :Man command shipped inside Vim's man filetype plugin.
+if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has('nvim')
+  runtime ftplugin/man.vim
+endif
 
 " Markdown plugin
 let g:markdown_minlines = 250 " Number of lines to look around for markdown syntax context with markdown plugin
