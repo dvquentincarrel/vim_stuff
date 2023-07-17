@@ -3,7 +3,6 @@ set nocompatible " Vim, not Vi
 set tabpagemax=500 " I could get use out of that with my janky homemade tools
 set history=5000 " I'm not running this on 2Kb of RAM
 set hidden " Hides closed buffers instead of removing them
-set noswapfile
 set shell=/bin/bash
 set timeoutlen=500
 set title " Automatically changes title of window to &titlestring
