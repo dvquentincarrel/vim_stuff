@@ -56,7 +56,7 @@ nnoremap <expr> s v:register =~ '[\*+]' ? '""s' : 's'
 nnoremap <expr> S v:register =~ '[\*+]' ? '""S' : 'S'
 nnoremap <expr> x v:register =~ '[\*+]' ? '""x' : 'x'
 nnoremap <expr> X v:register =~ '[\*+]' ? '""X' : 'X'
-nnoremap <leader>ff :term fzf<cr>
+nnoremap <leader>ff :tabe <bar> :term fzf<CR>
 
 " nnoremap <Esc> <nop>
 " nnoremap <left> <nop>
