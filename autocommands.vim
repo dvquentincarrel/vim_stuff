@@ -63,6 +63,6 @@ if has('nvim')
 
     augroup term_clo
         autocmd!
-        autocmd TermClose *:fzf stopinsert | call feedkeys('gg^"9y$a:exec "edit ". @9')
+        autocmd TermClose *:fzf if v:event.status == 0 | stopinsert | call feedkeys('gg^"9y$a:exec "tabedit ". @9') | else | call feedkeys('') | endif
     augroup END
 endif
