@@ -56,6 +56,7 @@ nnoremap <expr> s v:register =~ '[\*+]' ? '""s' : 's'
 nnoremap <expr> S v:register =~ '[\*+]' ? '""S' : 'S'
 nnoremap <expr> x v:register =~ '[\*+]' ? '""x' : 'x'
 nnoremap <expr> X v:register =~ '[\*+]' ? '""X' : 'X'
+nnoremap <leader>ff :term fzf<cr>
 
 " nnoremap <Esc> <nop>
 " nnoremap <left> <nop>
@@ -69,3 +70,5 @@ onoremap u :call search('\u')<cr>
 onoremap D :call search('\.')<cr>
 " For underScore
 onoremap s :call search('_')<cr>
+
+tnoremap <Esc> <C-\><C-N>

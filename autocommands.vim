@@ -54,3 +54,15 @@ if !has('nvim')
         autocmd VimLeave * call system("xclip -sel c", getreg('+'))
     augroup END
 endif
+
+if has('nvim')
+    augroup term_insert
+        autocmd!
+        autocmd TermOpen * startinsert
+    augroup END
+
+    augroup term_clo
+        autocmd!
+        autocmd TermClose *:fzf stopinsert | call feedkeys('gg^"9y$a:exec "edit ". @9')
+    augroup END
+endif
