@@ -28,6 +28,7 @@ set cursorline " Highlights line cursor is currently on
 set scrolloff=2 " How many lines between cursor and edge
 set sidescrolloff=5 " How many lines between cursor and horizontal edge
 set ruler " show the cursor position all the time
+set foldmethod=indent " Generally saner than alternatives
 highlight Normal ctermbg=None
 
 " Editor options
