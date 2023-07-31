@@ -14,6 +14,7 @@ set belloff=all " Disables the bell
 set wildmenu " display completion matches in a status line
 set mouse=a " Mouse support
 set wildignore+=*.pyc,node_modules
+set updatetime=300 " timeout before writing to swap file or triggering CursorHold event
 
 " Display
 syntax enable
@@ -67,6 +68,9 @@ endif
 if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has('nvim')
   runtime ftplugin/man.vim
 endif
+
+" CoC plugin
+set signcolumn=yes " Prevents shifting when diagnostics appear/get fixed
 
 " Markdown plugin
 let g:markdown_minlines = 250 " Number of lines to look around for markdown syntax context with markdown plugin
