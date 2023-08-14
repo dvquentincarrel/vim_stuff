@@ -31,7 +31,7 @@ command Lint call Lint()
 command Scrub call prop_clear(1, getbufinfo(bufnr(""))[0]['linecount']) " Removes all virtual text from current buffer
 command -nargs=? -bar Tabs set tabstop=<args> | set shiftwidth=<args>
 command -nargs=1 -bar Read redir @" | silent <args> | redir END
-command -nargs=1 Tread Read <args> | tabe | setl buftype=nofile | put \"
+command -nargs=1 Tread Read <args> | tabe tread | setl buftype=nofile | setl bufhidden=delete | put \"
 " Diffs current buffer with its on-disk version for the times you've messed up (yes, this is :DiffOrig)
 command DiffDisk diffthis | vnew | read ++edit # | setl buftype=nofile | 0d_ | diffthis
 
