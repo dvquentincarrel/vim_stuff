@@ -49,8 +49,8 @@ endfunction
 function! ExecBind()
 	" Makes <F6> run the current file, and <F7> run in debugger (if applicable)
 	if &filetype == 'markdown'
-		nnoremap <buffer> <F6> :exec 'silent !makemd %' \| redraw!<cr>
-		nnoremap <buffer> <F8> :exec 'silent !makemd -k %' \| redraw!<cr>
+		nnoremap <buffer> <F6> :exec 'silent w !makemd' \| redraw!<cr>
+		nnoremap <buffer> <F8> :exec 'silent w !makemd -k' \| redraw!<cr>
 	elseif &filetype == 'python'
 		nnoremap <buffer> <F6> :tab term python -i "%:p"<cr>
 	elseif &filetype == 'bash'
