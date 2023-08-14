@@ -29,6 +29,7 @@ set scrolloff=2 " How many lines between cursor and edge
 set sidescrolloff=5 " How many lines between cursor and horizontal edge
 set ruler " show the cursor position all the time
 set foldmethod=indent " Generally saner than alternatives
+set nofoldenable " User is required to `zi` to enable folds
 highlight Normal ctermbg=None
 
 " Editor options
