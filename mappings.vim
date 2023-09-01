@@ -1,20 +1,15 @@
 let mapleader=" "
 
-" Makes i_<C-U> undoable
 inoremap <C-U> <C-G>u<C-U>
-inoremap <C-z> <C-o>u
-inoremap <C-s> <C-o>:w<CR>
+inoremap <Enter> <C-G>u<Enter>
+inoremap <C-R> <C-G>u<C-R>
 inoremap <A-Up> <esc>m':m-2<CR>``a
 inoremap <A-Down> <esc>m':m+1<CR>``a
 inoremap <F5> <C-o>:Make<cr>
-inoremap <C-d>d <C-o>:read !date -Idate<CR><backspace><C-o>$
-inoremap <C-d>D <C-o>:read !date -Iseconds<CR><backspace><C-o>$
-inoremap <C-d>t <C-o>:read !date +\%T<CR><backspace><C-o>$
-inoremap <C-d>T <C-o>:read !date +\%T+\%Z<CR><backspace><C-o>$
 inoremap jj <esc>
-" V overwrites 'insert char below cursor'
+" overwrites 'insert char below cursor'
 inoremap <C-e> <C-o>$
-" V overwrites 'insert again'
+" overwrites 'insert again'
 inoremap <C-a> <C-o>^
 
 if has('clipboard')
@@ -24,7 +19,6 @@ else
 endif
 vnoremap <tab> >gv
 vnoremap <S-tab> <gv
-vnoremap <C-d>c+ :!calc_duration -m sum<cr>
 vnoremap <leader>col :!column -t<cr>
 vnoremap s :call VisSurround("inline")<cr>
 vnoremap S :call VisSurround("around")<cr>
@@ -36,8 +30,6 @@ nnoremap ]q :cn<Cr>
 nnoremap <A-Down> :m+1<cr>
 nnoremap <A-Up> :m-2<CR>
 nnoremap <bs> :set hls!<cr>
-nnoremap <C-d>c :TDelta<cr>kJa= <esc>
-nnoremap <C-d>c+ :TAdd<cr>kJa= <esc>
 nnoremap <C-w>o :tabedit %<cr>
 nnoremap <A-left> <c-w>5<
 nnoremap <A-right> <c-w>5>
