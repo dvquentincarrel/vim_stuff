@@ -60,8 +60,7 @@ set nrformats-=octal " Ignore octal on <C-a> & <C-x>
 set backspace=indent,eol,start " Allows backspacing over everything
 
 " External options
-set grepformat=%f\ +%l\ :\ %m " Adapted to parsing coffin output
-set grepprg=coffin\ -c
+set grepprg=rg\ --vimgrep
 " Correctly highlight $() and other modern affordances in filetype=sh.
 if !exists('g:is_posix') && !exists('g:is_bash') && !exists('g:is_kornshell') && !exists('g:is_dash')
   let g:is_posix = 1
