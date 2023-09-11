@@ -75,30 +75,6 @@ function! AdaptFold()
     endif
 endfunction
 
-function! ToggleUndKword()
-    if g:und_kw == 1
-        set iskeyword-=_
-        let g:und_kw = 0
-        echo "_ delimits"
-    else
-        set iskeyword+=_
-        let g:und_kw = 1
-        echo "_ blends in"
-    endif
-endfunction
-
-function! ToggleDotKword()
-    if g:dot_kw == 1
-        set iskeyword-=.
-        let g:dot_kw = 0
-        echo ". delimits"
-    else
-        set iskeyword+=.
-        let g:dot_kw = 1
-        echo ". blends in"
-    endif
-endfunction
-
 function! TagJump()
 	let l:curline = line(".")
 		normal vat

@@ -32,8 +32,6 @@ nnoremap <bs> :set hls!<cr>
 nnoremap <C-w>o :tabedit %<cr>
 nnoremap <A-left> <c-w>5<
 nnoremap <A-right> <c-w>5>
-nnoremap <leader>k_ :call ToggleUndKword()<cr>
-nnoremap <leader>k. :call ToggleDotKword()<cr>
 nnoremap <leader>r :set rnu!<cr>
 nnoremap <leader>t% :call TagJump()<cr>
 nnoremap gf :e <cfile><CR>
