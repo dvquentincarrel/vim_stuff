@@ -94,3 +94,5 @@ let NERDTreeMouseMode=3
 
 " indentLine plugin
 let g:indentLine_concealcursor = '' " Hide indentation marks on current line
+
+let b:altmakeprg = 'silent !true'

@@ -5,7 +5,6 @@ inoremap <Enter> <C-G>u<Enter>
 inoremap <C-R> <C-G>u<C-R>
 inoremap <A-Up> <esc>m':m-2<CR>``a
 inoremap <A-Down> <esc>m':m+1<CR>``a
-inoremap <F5> <C-o>:Make<cr>
 inoremap jj <esc>
 " overwrites 'insert char below cursor'
 inoremap <C-e> <C-o>$
@@ -24,7 +23,8 @@ vnoremap s :call VisSurround("inline")<cr>
 vnoremap S :call VisSurround("around")<cr>
 
 nnoremap <F2> :NERDTreeToggle<cr>
-nnoremap <F5> <Esc>:Make<cr>
+nnoremap <F5> :Make<cr>
+nnoremap <F17> :execute b:altmakeprg<cr>
 nnoremap [q :cp<Cr>
 nnoremap ]q :cn<Cr>
 nnoremap <A-Down> :m+1<cr>
