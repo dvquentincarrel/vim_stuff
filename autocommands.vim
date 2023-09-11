@@ -13,6 +13,12 @@
 " 		}
 " augroup END
 
+augroup toggle_listchars
+    autocmd!
+    autocmd InsertEnter * let listval = &list | let &list = 0
+    autocmd InsertLeave * let &list = listval
+augroup END
+
 augroup tab_name
 	autocmd!
 	autocmd BufEnter * let &titlestring = ' '.expand("%:t")
