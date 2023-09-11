@@ -30,6 +30,7 @@ set sidescrolloff=5 " How many lines between cursor and horizontal edge
 set ruler " show the cursor position all the time
 set foldmethod=indent " Generally saner than alternatives
 set nofoldenable " User is required to `zi` to enable folds
+set listchars=tab:>\ ,trail:·,nbsp:+,lead:\ 
 highlight Normal ctermbg=None
 
 " Editor options
@@ -58,6 +59,7 @@ set ttimeout " time out for key codes
 set ttimeoutlen=100 " wait up to 100ms after Esc for special key
 set nrformats-=octal " Ignore octal on <C-a> & <C-x>
 set backspace=indent,eol,start " Allows backspacing over everything
+set list " For trailing whitespaces & tabs markup
 
 " External options
 set grepprg=rg\ --vimgrep
