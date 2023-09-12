@@ -32,6 +32,8 @@ command -nargs=1 -bar Read redir @" | silent <args> | redir END
 command -nargs=1 -complete=command Tread Read <args> | tabe tread | setl buftype=nofile | setl bufhidden=delete | put \"
 " Diffs current buffer with its on-disk version for the times you've messed up (yes, this is :DiffOrig)
 command DiffDisk diffthis | vnew | read ++edit # | setl buftype=nofile | 0d_ | diffthis
+command Fcl redir @+ | echon expand('%:p') | redir END
+command Pcl redir @+ | echon expand('%:p:h') | redir END
 
 
 function! LineTabTransfer(source_tab_nb, dest_tab_nb)
