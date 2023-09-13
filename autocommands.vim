@@ -27,7 +27,7 @@ augroup END
 augroup mem_folds
 	" Automatically saves and load the view
 	autocmd!
-	autocmd BufWrite * mkview
+    autocmd BufWrite * if len(expand('%:p')) < 100 | mkview | endif
 	autocmd BufRead * silent! loadview
 augroup END
 

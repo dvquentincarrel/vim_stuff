@@ -15,6 +15,9 @@ set wildmenu " display completion matches in a status line
 set mouse=a " Mouse support
 set wildignore+=*.pyc,node_modules
 set updatetime=300 " timeout before writing to swap file or triggering CursorHold event
+if(len(expand('%:p')) > 100)
+    set noswapfile
+endif
 
 " Display
 syntax enable
