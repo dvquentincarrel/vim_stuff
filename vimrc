@@ -77,15 +77,6 @@ function! AdaptFold()
     endif
 endfunction
 
-function! TagJump()
-	let l:curline = line(".")
-		normal vat
-	if l:curline == line("'>")
-		normal o
-	endif
-	normal 
-endfunction
-
 function! Lint()
 	lclose
 	if &filetype=='xml'

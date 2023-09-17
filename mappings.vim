@@ -33,7 +33,6 @@ nnoremap <C-w>o :tabedit %<cr>
 nnoremap <A-left> <c-w>5<
 nnoremap <A-right> <c-w>5>
 nnoremap <leader>r :set rnu!<cr>
-nnoremap <leader>t% :call TagJump()<cr>
 nnoremap gf :e <cfile><CR>
 nnoremap <c-w>gf :tabe <cfile><CR>
 nmap <leader>gf <C-w>gf
