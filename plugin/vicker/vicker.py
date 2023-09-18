@@ -37,4 +37,4 @@ for input_line in sys.stdin:
     line, subtotal = compute_line(input_line, TIME_REGEX.findall(input_line))
     total += subtotal
     print(line, end='')
-print(f'# Total: {secs_to_str(total)}')
+print(f'    # Total: {secs_to_str(total)}')

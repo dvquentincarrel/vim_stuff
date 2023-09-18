@@ -5,7 +5,7 @@ augroup END
 
 function! SetupVicker()
     nnoremap <buffer> <leader>t :call VickerAddTime()<cr>
-    exec "vnoremap <buffer> <leader>t :!python ".b:vickerPath."/vicker.py<cr>"
+    exec "vnoremap <buffer><silent> <leader>t :!python ".b:vickerPath."/vicker.py<cr>"
     function! VickerAddTime()
         " Inserts cur time on cur line and next one, sets up next task
         let b:nextTask = input("Next tasks's name: ")
