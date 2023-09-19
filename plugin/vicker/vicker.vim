@@ -12,7 +12,7 @@ function! SetupVicker()
         let b:curTime = trim(system('date +%T'))
         exec ".!perl -pe 's/($| \\#)/ ".b:curTime."$1/'"
         . yank | put
-        exec ".!perl -pe 's/( *-).*/$1 ".b:curTime." \\#".escape(b:nextTask, "'\ ")."/'"
+        exec ".!perl -pe 's/( *-).*/$1 ".b:curTime." \\# ".escape(b:nextTask, "'\ ")."/'"
     endfunction
 endfunction
 
