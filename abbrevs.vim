@@ -22,7 +22,7 @@ function! CommonAbbr()
         inoreabbrev <buffer> asset( {{ asset('') }}<Esc>4hi
         inoreabbrev <buffer> trans% {% trans %}{% endtrans %}<Esc>2h%i
     elseif &filetype == 'xml'
-        inoreabbrev <buffer> attrs attrs="{'': [('' ,'=', 0)]}"<Esc>18hi
+        inoreabbrev <buffer> attrs attrs="{'': [('', '=', 0)]}"<Esc>18hi
         inoreabbrev <buffer> domain domain="[('', '=', '')]"<Esc>12hi
         inoreabbrev <buffer> mfield <field name="_rc" dynamic_string="global_vars.t_" type="many2one" onchange="" model="" operator="="/>
         inoreabbrev <buffer> qfield <field name="_input" dynamic_string="global_vars.t_" type="float" onchange=""/>
