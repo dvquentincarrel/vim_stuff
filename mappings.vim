@@ -22,6 +22,8 @@ vnoremap <leader>col :!column -t<cr>
 vnoremap s :call VisSurround("inline")<cr>
 vnoremap S :call VisSurround("around")<cr>
 
+nnoremap * *N
+nnoremap # #N
 nnoremap <F5> :Make<cr>
 nnoremap <F17> :execute b:altmakeprg<cr>
 nnoremap [q :cp<Cr>
