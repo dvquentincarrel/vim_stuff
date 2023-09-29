@@ -9,6 +9,9 @@ function! SetupVicker()
     function! VickerAddTime()
         " Inserts cur time on cur line and next one, sets up next task
         let b:nextTask = input("Next tasks's name: ")
+        if(b:nextTask == '')
+            return 0
+        endif
         let b:curTime = trim(system('date +%T'))
         exec ".!perl -pe 's/($| \\#)/ ".b:curTime."$1/'"
         . yank | put
