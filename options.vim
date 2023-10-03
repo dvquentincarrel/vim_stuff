@@ -34,6 +34,9 @@ set ruler " show the cursor position all the time
 set foldmethod=indent " Generally saner than alternatives
 set nofoldenable " User is required to `zi` to enable folds
 set listchars=tab:>\ ,trail:·,nbsp:+,lead:\ 
+if has('nvim')
+    setglobal signcolumn=auto:2-9
+endif
 highlight Normal ctermbg=None
 
 " Editor options
@@ -74,9 +77,6 @@ endif
 if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has('nvim')
   runtime ftplugin/man.vim
 endif
-
-" CoC plugin
-set signcolumn=yes " Prevents shifting when diagnostics appear/get fixed
 
 " Markdown plugin
 let g:markdown_minlines = 250 " Number of lines to look around for markdown syntax context with markdown plugin
