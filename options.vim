@@ -99,3 +99,5 @@ let NERDTreeMouseMode=3
 let g:indentLine_concealcursor = '' " Hide indentation marks on current line
 
 let b:altmakeprg = 'silent !true'
+
+set runtimepath+=$HOME/my_repos/vim_stuff
