@@ -62,8 +62,8 @@ set splitright " New splits default to being put on the right
 set spelllang=fr " For spell checking
 set spelloptions=camel " Supports spell checking on camelCased wordGroups
 set clipboard^=unnamedplus
-set ttimeout " time out for key codes
-set ttimeoutlen=100 " wait up to 100ms after Esc for special key
+set nottimeout " Key sequences never stop waiting
+set notimeout " Key sequences never stop waiting
 set nrformats-=octal " Ignore octal on <C-a> & <C-x>
 set backspace=indent,eol,start " Allows backspacing over everything
 set list " For trailing whitespaces & tabs markup
