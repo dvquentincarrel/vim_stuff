@@ -14,6 +14,7 @@
 " augroup END
 
 augroup toggle_listchars
+    " If enabled, list chars are hidden during insert mode
     autocmd!
     autocmd InsertEnter * let listval = &list | let &list = 0
     autocmd InsertLeave * let &list = listval
@@ -33,19 +34,10 @@ augroup END
 
 augroup ft_adapt
 	" Automatically adapts to the current filetype by
-	" settings the compiler, how to run the file, and
-	" creating relevant abberevations
+	" settings the compiler
 	autocmd!
 	autocmd FileType * try | execute "compiler" &filetype | catch | endtry
 	"autocmd BufWritePost * Make "Un peu relou en vrai
-	autocmd FileType * call ExecBind()
-	autocmd FileType * call CommonAbbr()
-	autocmd FileType * call CommentLine()
-	autocmd Filetype help setlocal number
-	autocmd BufEnter * call ExecBind()
-	autocmd BufEnter * call CommonAbbr()
-	autocmd BufEnter * call CommentLine()
-	autocmd FileType help setlocal number
 augroup END
 
 augroup no_chevron

@@ -46,37 +46,6 @@ function! ShiftTab()
 	echo "".l:curbr
 endfunction
 
-function! ExecBind()
-	" Makes <F6> run the current file, and <F7> run in debugger (if applicable)
-	if &filetype == 'markdown'
-		nnoremap <buffer> <F6> :exec 'silent w !makemd' \| redraw!<cr>
-		nnoremap <buffer> <F8> :exec 'silent w !makemd -k' \| redraw!<cr>
-	elseif &filetype == 'python'
-		nnoremap <buffer> <F6> :tab term python -i "%:p"<cr>
-	elseif &filetype == 'bash'
-		nnoremap <buffer> <F6> :!./"%:p"
-	elseif &filetype == 'java'
-		nnoremap <buffer> <F6> :tab term java %:r<cr>
-		nnoremap <buffer> <F7> :tab term jdb %:r<cr>
-	endif
-endfunction
-
-function! CommentLine()
-    if &filetype == 'xml' || &filetype == 'html' || &filetype == 'markdown'
-        nmap <buffer> <leader># I<!-- <C-o>$ --><esc><<
-        vmap <buffer> <leader># <esc>'<O<!--<esc>'>o--><esc>
-    else
-    endif
-endfunction
-
-function! AdaptFold()
-    if &filetype == 'python' || &filetype == 'xml' || &filetype == 'html'
-        set foldmethod=indent
-    else
-        set foldmethod=manual
-    endif
-endfunction
-
 function! Lint()
 	lclose
 	if &filetype=='xml'
