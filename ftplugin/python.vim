@@ -24,3 +24,7 @@ inoreabbrev <buffer> doc;
 \<CR>:rtype: <%% ReturnType %%>
 \<CR>:raises <%% ErrType %%>: <%% ErrorDescription %%>
 \<CR>"""<Esc>7k
+
+if line('$') >= 5000
+    let b:coc_enabled=0
+endif

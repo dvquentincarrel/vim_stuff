@@ -51,7 +51,7 @@ set nowrap " Long lines don't wrap automatically
 set tabstop=4 " Sizes of a single tab, in spaces
 set shiftwidth=4 " How many spaces to use for 'auto' indentation
 set softtabstop=4
-set expandtab " Tabs are not real tabs, replaced by spaces
+"set expandtab " Tabs are not real tabs, replaced by spaces
 set lazyredraw " Is this what's been messing with my md files ? Who knows.
 set colorcolumn=80 " Column that is highlighted
 set textwidth=0 " No more auto line breaks !
