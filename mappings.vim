@@ -24,6 +24,8 @@ vnoremap S :call VisSurround("around")<cr>
 
 nnoremap * *N
 nnoremap # #N
+nnoremap ]b :bnext<cr>
+nnoremap [b :bprevious<cr>
 nnoremap <F5> :Make<cr>
 nnoremap <F17> :execute b:altmakeprg<cr>
 nnoremap [q :cp<Cr>
