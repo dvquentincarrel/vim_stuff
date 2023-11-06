@@ -4,7 +4,7 @@ set tabpagemax=500 " I could get use out of that with my janky homemade tools
 set history=5000 " I'm not running this on 2Kb of RAM
 set hidden " Hides closed buffers instead of removing them
 set shell=/bin/bash
-set timeoutlen=500
+set timeoutlen=1000
 set title " Automatically changes title of window to &titlestring
 set undofile " Undo history persistence
 if !has('nvim')
@@ -62,8 +62,8 @@ set splitright " New splits default to being put on the right
 set spelllang=fr " For spell checking
 set spelloptions=camel " Supports spell checking on camelCased wordGroups
 set clipboard^=unnamedplus
-set nottimeout " Key sequences never stop waiting
-set notimeout " Key sequences never stop waiting
+set ttimeout " Key sequences never stop waiting
+set timeout " Key sequences never stop waiting
 set nrformats-=octal " Ignore octal on <C-a> & <C-x>
 set backspace=indent,eol,start " Allows backspacing over everything
 set list " For trailing whitespaces & tabs markup
