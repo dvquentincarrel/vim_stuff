@@ -35,6 +35,8 @@ command -nargs=1 -complete=command Tread Read <args> | tabe tread | setl buftype
 command DiffDisk diffthis | vnew | read ++edit # | setl buftype=nofile | 0d_ | diffthis
 command Fcl redir @+ | echon expand('%:p') | redir END
 command Pcl redir @+ | echon expand('%:p:h') | redir END
+command StopLsp lua vim.lsp.stop_client(vim.lsp.get_active_clients())
+command StopDiag lua vim.diagnostic.disable()
 
 
 function! LineTabTransfer(source_tab_nb, dest_tab_nb)
