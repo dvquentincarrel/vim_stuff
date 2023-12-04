@@ -67,6 +67,7 @@ set timeout " Key sequences never stop waiting
 set nrformats-=octal " Ignore octal on <C-a> & <C-x>
 set backspace=indent,eol,start " Allows backspacing over everything
 set list " For trailing whitespaces & tabs markup
+set nofixeol " Reduces diffs. Besides, if your codebase has these, it most likely has bigger issues
 
 " External options
 set grepprg=rg\ --vimgrep
