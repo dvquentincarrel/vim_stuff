@@ -4,7 +4,7 @@ import re
 from datetime import timedelta
 from typing import Tuple
 
-TIME_REGEX=re.compile(r'^( *-? (\d\d:\d\d:\d\d) (\d\d:\d\d:\d\d))( #.*)?$')
+TIME_REGEX=re.compile(r'^( *-? (\d\d:\d\d:\d\d) (\d\d:\d\d:\d\d))( *# (.*))?$')
 
 def str_to_secs(time: str) -> int:
     """Gets how many seconds there are in a %HH:%MM:%SS-formatted string"""
@@ -29,7 +29,7 @@ def compute_line(line: str, matches: list) -> Tuple[str, int]:
     end = str_to_secs(matches[2])
     end = end if(end > start) else end + 86400
     total = end - start
-    line_str = f'{matches[0]} = {secs_to_str(total)}{matches[3]}\n'
+    line_str = f'{matches[0]} # [{secs_to_str(total)}] {matches[4]}\n'
     return (line_str, total)
 
 total = subtotal = 0
