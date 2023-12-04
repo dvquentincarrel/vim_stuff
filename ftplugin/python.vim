@@ -2,6 +2,7 @@ nnoremap <buffer> <F6> :tab term python -i "%:p"<cr>
 
 inoreabbrev <buffer> ipdbi import ipdb; ipdb.set_trace()
 inoreabbrev <buffer> pdbi import pdb; pdb.set_trace()
+inoreabbrev <buffer> pudbi import pudb; pudb.set_trace()
 
 " Make every function print its name when called
 command PrintFunc g/def \w\+(/norm ^wyiwoprint('"')
@@ -16,13 +17,13 @@ inoreabbrev <buffer> sp_stackdepth
 
 " Docstring template
 inoreabbrev <buffer> doc; 
-\"""<%% Summary %%>
+\"""_%% Summary %%_
 \<CR>
-\<CR>:param <%% ParamName %%>: <%% ParamDescription %%>
-\<CR>:type <%% ParamName %%>: <%% ParamType %%>
-\<CR>:return: <%% ReturnDescription %%>
-\<CR>:rtype: <%% ReturnType %%>
-\<CR>:raises <%% ErrType %%>: <%% ErrorDescription %%>
+\<CR>:param _%% ParamName %%_: _%% ParamDescription %%_
+\<CR>:type _%% ParamName %%_: _%% ParamType %%_
+\<CR>:return: _%% ReturnDescription %%_
+\<CR>:rtype: _%% ReturnType %%_
+\<CR>:raises _%% ErrType %%_: _%% ErrorDescription %%_
 \<CR>"""<Esc>7k
 
 if line('$') >= 5000
