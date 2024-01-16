@@ -21,6 +21,8 @@ vnoremap <S-tab> <gv
 vnoremap <leader>col :!column -t<cr>
 vnoremap s :call VisSurround("inline")<cr>
 vnoremap S :call VisSurround("around")<cr>
+vnoremap < <gv
+vnoremap > >gv
 
 nnoremap * *N
 nnoremap # #N
