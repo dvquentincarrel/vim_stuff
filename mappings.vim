@@ -50,9 +50,16 @@ nnoremap <expr> s v:register =~ '[\*+]' ? '""s' : 's'
 nnoremap <expr> S v:register =~ '[\*+]' ? '""S' : 'S'
 nnoremap <expr> x v:register =~ '[\*+]' ? '""x' : 'x'
 nnoremap <expr> X v:register =~ '[\*+]' ? '""X' : 'X'
-nnoremap <leader>ff :let g:fuzzy_split='tab' <bar> :tabe <bar> :term fzf<CR>
-nnoremap <leader>vff :let g:fuzzy_split='vert' <bar> :vs <bar> :term fzf<CR>
-nnoremap <leader>fl :let fuzzy_line = input('Fuzzy pattern: ') <bar> :exec 'vim /'.fuzzy_line.'/f %' <bar> :copen <cr>
+"if exists(':Files')
+if 1
+    nnoremap <leader>ff :Files<CR>
+    nnoremap <leader>gf :GFiles<CR>
+    nnoremap <leader>fl :Lines<CR>
+else
+    nnoremap <leader>ff :let g:fuzzy_split='tab' <bar> :tabe <bar> :term fzf<CR>
+    nnoremap <leader>vff :let g:fuzzy_split='vert' <bar> :vs <bar> :term fzf<CR>
+    nnoremap <leader>fl :let fuzzy_line = input('Fuzzy pattern: ') <bar> :exec 'vim /'.fuzzy_line.'/f %' <bar> :copen <cr>
+endif
 
 " For Uppercase
 onoremap u :call search('\u')<cr>
