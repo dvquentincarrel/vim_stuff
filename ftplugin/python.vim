@@ -1,3 +1,5 @@
+let b:altmakeprg='silent Inject'
+
 nnoremap <buffer> <F6> :tab term python -i "%:p"<cr>
 
 inoreabbrev <buffer> ipdbi import ipdb; ipdb.set_trace()
