@@ -53,8 +53,17 @@ nnoremap <expr> X v:register =~ '[\*+]' ? '""X' : 'X'
 "if exists(':Files')
 if 1
     nnoremap <leader>ff :Files<CR>
-    nnoremap <leader>gf :GFiles<CR>
-    nnoremap <leader>fl :Lines<CR>
+    nnoremap <leader>fg :GFiles<CR>
+    nnoremap <leader>fb :Buffers<CR>
+    nnoremap <leader>fr :Rg! 
+    nnoremap <leader>fR :RG!<CR>
+    nnoremap <leader>fl :BLines<CR>
+    nnoremap <leader>fL :Lines<CR>
+    nnoremap <leader>ft :BTags<CR>
+    nnoremap <leader>fT :Tags<CR>
+    nnoremap <leader>fm :Marks<CR>
+    nnoremap <leader>fc :BCommits<CR>
+    nnoremap <leader>fC :Commits<CR>
 else
     nnoremap <leader>ff :let g:fuzzy_split='tab' <bar> :tabe <bar> :term fzf<CR>
     nnoremap <leader>vff :let g:fuzzy_split='vert' <bar> :vs <bar> :term fzf<CR>
