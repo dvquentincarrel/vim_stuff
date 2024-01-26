@@ -1,5 +1,7 @@
 "source $VIMRUNTIME/defaults.vim
 set runtimepath+=$HOME/my_repos/vim_stuff
+set runtimepath+=$HOME/my_repos/vim_stuff/after
+set packpath+=$HOME/my_repos/vim_stuff
 
 let $CONFIG=$HOME."/.vim/"
 
