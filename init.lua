@@ -5,7 +5,7 @@ vim.cmd('source ~/.vim/vimrc')
 
 local TSgroup = vim.api.nvim_create_augroup('vimrc', {clear = true})
 vim.api.nvim_create_autocmd({'Filetype'}, {
-    pattern = 'python,sh,bash,vim,json,html',
+    pattern = 'python,sh,bash,vim,json,html,markdown',
     group = TSgroup,
     command = 'lua vim.treesitter.start()'
 })
