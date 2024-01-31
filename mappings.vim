@@ -50,25 +50,11 @@ nnoremap <expr> s v:register =~ '[\*+]' ? '""s' : 's'
 nnoremap <expr> S v:register =~ '[\*+]' ? '""S' : 'S'
 nnoremap <expr> x v:register =~ '[\*+]' ? '""x' : 'x'
 nnoremap <expr> X v:register =~ '[\*+]' ? '""X' : 'X'
-"if exists(':Files')
-if 1
-    nnoremap <leader>ff :Files<CR>
-    nnoremap <leader>fg :GFiles<CR>
-    nnoremap <leader>fb :Buffers<CR>
-    nnoremap <leader>fr :Rg! 
-    nnoremap <leader>fR :RG!<CR>
-    nnoremap <leader>fl :BLines<CR>
-    nnoremap <leader>fL :Lines<CR>
-    nnoremap <leader>ft :BTags<CR>
-    nnoremap <leader>fT :Tags<CR>
-    nnoremap <leader>fm :Marks<CR>
-    nnoremap <leader>fc :BCommits<CR>
-    nnoremap <leader>fC :Commits<CR>
-else
-    nnoremap <leader>ff :let g:fuzzy_split='tab' <bar> :tabe <bar> :term fzf<CR>
-    nnoremap <leader>vff :let g:fuzzy_split='vert' <bar> :vs <bar> :term fzf<CR>
-    nnoremap <leader>fl :let fuzzy_line = input('Fuzzy pattern: ') <bar> :exec 'vim /'.fuzzy_line.'/f %' <bar> :copen <cr>
-endif
+
+" Overwritten if ":Files" exists
+nnoremap <leader>ff :let g:fuzzy_split='tab' <bar> :tabe <bar> :term fzf<CR>
+nnoremap <leader>vff :let g:fuzzy_split='vert' <bar> :vs <bar> :term fzf<CR>
+nnoremap <leader>fl :let fuzzy_line = input('Fuzzy pattern: ') <bar> :exec 'vim /'.fuzzy_line.'/f %' <bar> :copen <cr>
 
 " For Uppercase
 onoremap u :call search('\u')<cr>
