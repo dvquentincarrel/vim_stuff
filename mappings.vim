@@ -24,8 +24,6 @@ vnoremap S :call VisSurround("around")<cr>
 vnoremap < <gv
 vnoremap > >gv
 
-nnoremap * *N
-nnoremap # #N
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprevious<cr>
 nnoremap <F5> :Make<cr>
@@ -43,6 +41,7 @@ nnoremap gf :e <cfile><CR>
 nnoremap <c-w>gf :tabe <cfile><CR>
 nmap <leader>gf <C-w>gf
 nmap <leader>gF <C-w>gF
+nnoremap <leader>/ :let @/='\<<C-R><C-W>\>'<CR>:set hls<CR>
 nnoremap <leader>c "+c
 nnoremap <expr> c v:register =~ '[\*+]' ? '""c' : 'c'
 nnoremap <expr> C v:register =~ '[\*+]' ? '""C' : 'C'
