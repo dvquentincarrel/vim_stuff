@@ -12,15 +12,20 @@ function! SetupVicker()
         " Escape problematic chars
         let b:nextTask = input("Next tasks's name: ")
         let b:nextTask = escape(b:nextTask, "=!@#/%$&\\")
+        let b:curTime = trim(system('date +%T'))
         if(b:nextTask == '')
             return 0
         endif
-        let b:curTime = trim(system('date +%T'))
-        let l:closed_line = substitute(getline("."), '\v($| #)', ' '.b:curTime.'\1', '')
-        let l:new_line = substitute(getline("."), '\v( *-).*', '\1 '.b:curTime.' # '.b:nextTask, '')
-        call setline(".", l:closed_line)
-        call append(".", l:new_line)
-        call cursor(line(".")+1, col("."))
+        " If on a closed fold, we only care about the last line of the fold
+        let l:linenum = foldclosedend(".") > 0 ? foldclosedend(".") : line(".")
+        let l:base_line = getline(l:linenum)
+
+        let l:closed_line = substitute(l:base_line, '\v($| #)', ' '.b:curTime.'\1', '')
+        let l:new_line = substitute(l:base_line, '\v( *-).*', '\1 '.b:curTime.' # '.b:nextTask, '')
+        call setline(l:linenum, l:closed_line)
+        call append(l:linenum, l:new_line)
+
+        call cursor(l:linenum+1, col("."))
     endfunction
 
 endfunction
