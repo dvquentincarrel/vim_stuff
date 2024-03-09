@@ -2,8 +2,8 @@ nnoremap <buffer> <F6> :!./"%:p"
 
 iabbrev <buffer> getopts 
 \read -rd '' help_msg <<EOF
-\<cr>Usage: _%%%%_
-\<cr>_%%%%_
+\<cr>Usage: {%%}
+\<cr>{%%}
 \<cr>EOF
 \<cr>
 \<cr>while getopts "h" opt; do

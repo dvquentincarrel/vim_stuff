@@ -19,13 +19,13 @@ inoreabbrev <buffer> sp_stackdepth
 
 " Docstring template
 inoreabbrev <buffer> doc; 
-\"""_%% Summary %%_
+\"""{% Summary %}
 \<CR>
-\<CR>:param _%% ParamName %%_: _%% ParamDescription %%_
-\<CR>:type _%% ParamName %%_: _%% ParamType %%_
-\<CR>:return: _%% ReturnDescription %%_
-\<CR>:rtype: _%% ReturnType %%_
-\<CR>:raises _%% ErrType %%_: _%% ErrorDescription %%_
+\<CR>:param {% ParamName %}: {% ParamDescription %}
+\<CR>:type {% ParamName %}: {% ParamType %}
+\<CR>:return: {% ReturnDescription %}
+\<CR>:rtype: {% ReturnType %}
+\<CR>:raises {% ErrType %}: {% ErrorDescription %}
 \<CR>"""<Esc>7k
 
 if line('$') >= 5000
