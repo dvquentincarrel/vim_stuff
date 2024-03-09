@@ -1,6 +1,7 @@
 if exists(':Files')
     nnoremap <leader>ff :Files<CR>
-    nnoremap <leader>fg :GFiles<CR>
+    nnoremap <leader>fg :call fzf#vim#gitfiles(getcwd())<CR>
+    nnoremap <leader>fG :GFiles<CR>
     nnoremap <leader>fb :Buffers<CR>
     nnoremap <leader>fr :Rg! 
     nnoremap <leader>fR :RG!<CR>
