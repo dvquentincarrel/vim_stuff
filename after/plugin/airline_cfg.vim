@@ -4,7 +4,7 @@ if exists(':AirlineExtensions')
     let g:airline_symbols_ascii = 1
 
     let g:airline_section_y = ''
-    let g:airline_section_c = '%{trim(system("shorten_path ".getcwd()." 2"))}/%t'
+    let g:airline_section_c = '%{trim(system("shorten_path ".getcwd()." 2"))}     %f'
 
     let airline#extensions#nvimlsp#error_symbol = ''
     let airline#extensions#nvimlsp#warning_symbol = ''
