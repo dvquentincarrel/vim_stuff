@@ -54,7 +54,7 @@ endfunction
 
 function! Lint()
 	lclose
-	if &filetype=='xml'
+	if &filetype=='xml' || &filetype == 'html'
 		lex system('xmllint --noout '.expand('%'))
     elseif &filetype=='python'
         " TODO: see if there's no issues outside of work
