@@ -16,8 +16,8 @@ install: $(targets)
 
 .IGNORE install_vim_plugins: make_vim_plugin_dirs
 	-git  -C  pack/airline/start     clone  https://github.com/vim-airline/vim-airline.git
-	-which nvim >/dev/null || git -C pack/colors/start clone  https://github.com/morhetz/gruvbox.git
 	-git  -C  pack/fzf/start         clone  https://github.com/junegunn/fzf.vim
+	-wget -P  plugin                 'https://raw.githubusercontent.com/junegunn/fzf/master/plugin/fzf.vim'
 	-git  -C  pack/indentline/start  clone  https://github.com/Yggdroot/indentLine
 	-git  -C  pack/narrow/start      clone  https://github.com/chrisbra/NrrwRgn.git
 	-git  -C  pack/nerdtree/start    clone  https://github.com/preservim/nerdtree
@@ -29,6 +29,7 @@ install: $(targets)
 	-git  -C  pack/tpope/start       clone  https://github.com/tpope/vim-surround
 	-git  -C  pack/undotree/start    clone  https://github.com/mbbill/undotree
 	-git  -C  pack/xmlruntime/start  clone  https://github.com/chrisbra/vim-xml-runtime
+	-which nvim >/dev/null || git -C pack/colors/start clone  https://github.com/morhetz/gruvbox.git
 
 .IGNORE make_vim_plugin_dirs:
 	-mkdir -p pack/airline/start
