@@ -16,7 +16,7 @@ install: $(targets)
 
 .IGNORE install_vim_plugins: make_vim_plugin_dirs
 	-git  -C  pack/airline/start     clone  https://github.com/vim-airline/vim-airline.git
-	-git  -C  pack/colors/start      clone  https://github.com/morhetz/gruvbox.git gruvbox_vim
+	-which nvim >/dev/null || git -C pack/colors/start clone  https://github.com/morhetz/gruvbox.git
 	-git  -C  pack/fzf/start         clone  https://github.com/junegunn/fzf.vim
 	-git  -C  pack/indentline/start  clone  https://github.com/Yggdroot/indentLine
 	-git  -C  pack/narrow/start      clone  https://github.com/chrisbra/NrrwRgn.git
@@ -44,7 +44,7 @@ install: $(targets)
 	-mkdir -p pack/xmlruntime/start
 
 .IGNORE install_nvim_plugins: make_nvim_plugin_dirs
-	-git  -C  pack/colors/start      clone  https://github.com/ellisonleao/gruvbox.nvim gruvbox_treesitter
+	-git  -C  pack/colors/start      clone  https://github.com/ellisonleao/gruvbox.nvim gruvbox
 	-git  -C  pack/lsp/start         clone  https://github.com/L3MON4D3/LuaSnip
 	-git  -C  pack/lsp/start         clone  https://github.com/VonHeikemen/lsp-zero.nvim
 	-git  -C  pack/lsp/start         clone  https://github.com/hrsh7th/cmp-buffer
