@@ -1,17 +1,18 @@
-"source $VIMRUNTIME/defaults.vim
-set runtimepath+=$HOME/my_repos/vim_stuff
-set runtimepath+=$HOME/my_repos/vim_stuff/after
-set packpath+=$HOME/my_repos/vim_stuff
+if ! has('nvim')
+    let init_real_path = resolve($HOME.'/.vim/vimrc')
+    let $GIT_PATH = substitute(init_real_path, '/vimrc', '', '')
+    set runtimepath+=$GIT_PATH
+    set runtimepath+=$GIT_PATH/after
+    let &packpath = &runtimepath
+endif
 
-let $CONFIG=$HOME."/.vim/"
+source $GIT_PATH/options.vim
 
-source $CONFIG/options.vim
+source $GIT_PATH/mappings.vim
 
-source $CONFIG/mappings.vim
+source $GIT_PATH/abbrevs.vim
 
-source $CONFIG/abbrevs.vim
-
-source $CONFIG/autocommands.vim
+source $GIT_PATH/autocommands.vim
 
 filetype plugin indent on
 

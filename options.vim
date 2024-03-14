@@ -8,7 +8,7 @@ set timeoutlen=1000
 set title " Automatically changes title of window to &titlestring
 set undofile " Undo history persistence
 if !has('nvim')
-    set undodir=$CONFIG/undodir
+    set undodir=$GIT_PATH/undodir
 endif
 set belloff=all " Disables the bell
 set wildmenu " display completion matches in a status line
@@ -101,5 +101,3 @@ let NERDTreeMouseMode=3
 let g:indentLine_concealcursor = '' " Hide indentation marks on current line
 
 let b:altmakeprg = 'silent !true'
-
-set runtimepath+=$HOME/my_repos/vim_stuff
