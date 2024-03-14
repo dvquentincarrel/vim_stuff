@@ -35,10 +35,11 @@ just run `make install`, it also downloads the plugins and installs them in this
 repository
 
 ## Uninstalling
+Run `make uninstall`. **THIS WILL REMOVE THE CONTENT OF THE** `pack/` **DIRECTORY, PROCEED WITH CAUTION!**  
 Only two-ish things are done outside of this repository by the installation process:
 - Creating the `$HOME/.config/nvim/` and `$HOME/.vim/` directories if they don't exist
 - Attempting to create an `init.lua` symlink in the `$HOME/.config/nvim/` directory
 - Attempting to create an `vimrc` symlink in the `$HOME/.vim/` directory
 
-I leave it up to the user to delete these files, as I would rather not assume these
-to be symlinks pointing to this directory.
+I leave it up to the user to choose to delete these files, as I would rather not
+assume these to be symlinks pointing to this directory.

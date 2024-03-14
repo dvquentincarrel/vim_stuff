@@ -7,7 +7,8 @@ vim.opt.packpath = vim.opt.runtimepath:get()
 vim.cmd('source '..git_path..'/vimrc')
 
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "python", "bash", "vim", "json", "html", "markdown" },
+    ensure_installed = { "python", "bash", "vim", "json", "html",
+                         "markdown", "markdown_inline", "make" },
     highlight = { enable = true },
     incremental_selection = { enable = true },
     textobjects = { enable = true },
