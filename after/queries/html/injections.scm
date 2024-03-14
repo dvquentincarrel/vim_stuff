@@ -1,3 +1,4 @@
+; inherits html
 ; <field name="raw_code|code"> ... </field>
 (element
   (start_tag
