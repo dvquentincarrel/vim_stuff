@@ -50,7 +50,6 @@ $(nvimdir)/init.lua:
 
 make_nvim_dirs: $(foreach x,$(nvim_plugin_dirs),pack/$(x)/start)
 install_nvim_plugins: make_nvim_dirs
-	git  -C  pack/colors/start      clone  https://github.com/ellisonleao/gruvbox.nvim gruvbox 
 	git  -C  pack/lsp/start         clone  https://github.com/L3MON4D3/LuaSnip 
 	git  -C  pack/lsp/start         clone  https://github.com/VonHeikemen/lsp-zero.nvim 
 	git  -C  pack/lsp/start         clone  https://github.com/hrsh7th/cmp-buffer 
@@ -63,7 +62,7 @@ install_nvim_plugins: make_nvim_dirs
 	git  -C  pack/treesitter/start  clone  https://github.com/nvim-treesitter/nvim-treesitter 
 
 pack/colors/start/gruvbox%:
-ifeq ($(shell which nvim >/dev/null ; echo $?), 0)
+ifeq ($(shell which nvim >/dev/null ; echo $$?), 0)
 	-git -C pack/colors/start clone  https://github.com/ellisonleao/gruvbox.nvim
 else
 	-git -C pack/colors/start clone  https://github.com/morhetz/gruvbox.git
