@@ -26,6 +26,7 @@ vnoremap > >gv
 
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprevious<cr>
+nnoremap <F14> :execute b:formatter<CR>
 nnoremap <F5> :Make<cr>
 nnoremap <F17> :execute b:altmakeprg<cr>
 nnoremap [q :cp<Cr>

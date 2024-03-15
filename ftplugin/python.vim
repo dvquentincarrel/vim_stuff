@@ -1,4 +1,6 @@
 let b:altmakeprg='silent Inject'
+command PyFormat !black -S %
+let b:formatter = 'PyFormat'
 
 nnoremap <buffer> <F6> :tab term python -i "%:p"<cr>
 
