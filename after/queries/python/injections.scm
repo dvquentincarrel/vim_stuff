@@ -25,4 +25,15 @@
         )
     )
 )
+
+(call
+    function: ((attribute) @f_name (#match? @f_name "cr.execute"))
+    arguments: (argument_list
+        (call (attribute (string 
+            (string_start)
+            ((string_content) @injection.content
+                (#set! injection.language "sql"))
+        )))
+    )
+)
 ; vim: ft=query
