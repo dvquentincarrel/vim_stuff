@@ -8,7 +8,7 @@ vim.cmd('source '..git_path..'/vimrc')
 
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "python", "bash", "vim", "json", "html",
-                         "markdown", "markdown_inline", "make" },
+                         "markdown", "markdown_inline", "make", "sql" },
     highlight = { enable = true },
     incremental_selection = { enable = true },
     textobjects = { enable = true },
