@@ -2,7 +2,8 @@ let b:altmakeprg='silent Inject'
 command PyFormat !black -S %
 let b:formatter = 'PyFormat'
 
-nnoremap <buffer> <F6> :tab term python -i "%:p"<cr>
+nnoremap <buffer> <F6> :silent !python "%:p"&<cr>
+nnoremap <buffer> <F18> :tab term python -i "%:p"<cr>
 
 inoreabbrev <buffer> ipdbi import ipdb; ipdb.set_trace()
 inoreabbrev <buffer> pdbi import pdb; pdb.set_trace()
