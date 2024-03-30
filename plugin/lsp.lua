@@ -30,3 +30,9 @@ cmp.setup({
 
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+vim.keymap.set("n", "gli", vim.lsp.buf.implementation)
+vim.keymap.set("n", "glr", vim.lsp.buf.references)
+vim.keymap.set("n", "glR", vim.lsp.buf.rename)
