@@ -68,3 +68,6 @@ if which nvim >/dev/null; then
 else
 	git  -C  pack/colors/start      clone  https://github.com/morhetz/gruvbox.git
 fi
+
+echo "\e[1mGenerating help tags...\e[m"
+vim +'helptags ALL | q'
