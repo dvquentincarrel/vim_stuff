@@ -34,3 +34,11 @@ inoreabbrev <buffer> doc;
 if line('$') >= 5000
     let b:coc_enabled=0
 endif
+
+iabbrev <expr> <buffer> ffield g:snip_pre."ffield.py".g:snip_post
+iabbrev <expr> <buffer> ifield g:snip_pre."ifield.py".g:snip_post
+iabbrev <expr> <buffer> bfield g:snip_pre."bfield.py".g:snip_post
+iabbrev <expr> <buffer> cfield g:snip_pre."cfield.py".g:snip_post
+iabbrev <expr> <buffer> ofield g:snip_pre."ofield.py".g:snip_post
+iabbrev <expr> <buffer> mfield g:snip_pre."mfield.py".g:snip_post
+iabbrev <expr> <buffer> mmfield g:snip_pre."mmfield.py".g:snip_post
