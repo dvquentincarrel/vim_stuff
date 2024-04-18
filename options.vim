@@ -9,6 +9,9 @@ set title " Automatically changes title of window to &titlestring
 set undofile " Undo history persistence
 if !has('nvim')
     set undodir=$GIT_PATH/undodir
+    set viminfo='1000,<50,s10,h
+else
+    set shada=!,'1000,<50,s10,h
 endif
 set belloff=all " Disables the bell
 set wildmenu " display completion matches in a status line
