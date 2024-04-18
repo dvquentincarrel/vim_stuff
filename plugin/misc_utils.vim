@@ -8,3 +8,15 @@ function! Wedit(executable_name)
     endif
 endfunction
 command! -nargs=1 -complete=shellcmd Wedit :call Wedit('<args>')
+
+" Work with columnated data
+function! Columns(mode)
+    if a:mode == 'extract'
+        let l:num = input('Column number: ', "1")
+        exec "silent '<,'>!awk '{print $".l:num."}'"
+    elseif a:mode == 'columnize'
+        '<,'>!column -t -s' '
+    endif
+endfunction
+vmap <leader>ce :<C-U>call Columns('extract')<CR>
+vmap <leader>cc :<C-U>call Columns('columnize')<CR>
