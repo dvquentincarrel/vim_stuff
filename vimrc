@@ -91,7 +91,11 @@ function! VisSurround(type) range
     set nopaste
 endfunction
 
-let g:gruvbox_guisp_fallback = "bg"
-colorscheme gruvbox 
+try
+    colorscheme gruvbox 
+    let g:gruvbox_guisp_fallback = "bg"
+catch
+    colorschem sorbet
+endtry
 
 hi Normal ctermbg=None
