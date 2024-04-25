@@ -7,6 +7,7 @@ if ! has('nvim')
 endif
 
 source $GIT_PATH/options.vim
+set runtimepath+=/home/quentin/opi_repo/vim
 
 source $GIT_PATH/mappings.vim
 
@@ -40,6 +41,7 @@ command Fcl redir @+ | echon expand('%:p') | redir END
 command Pcl redir @+ | echon expand('%:p:h') | redir END
 command StopLsp lua vim.lsp.stop_client(vim.lsp.get_active_clients())
 command StopDiag lua vim.diagnostic.disable()
+command Header setlocal sbo=hor | setlocal scrollbind | above 1sp+1
 
 
 function! LineTabTransfer(source_tab_nb, dest_tab_nb)
@@ -95,7 +97,11 @@ try
     colorscheme gruvbox 
     let g:gruvbox_guisp_fallback = "bg"
 catch
-    colorschem sorbet
+    try
+        colorschem sorbet
+    catch
+        colorschem habamax
+    endtry
 endtry
 
 hi Normal ctermbg=None
