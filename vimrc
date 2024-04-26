@@ -100,7 +100,11 @@ catch
     try
         colorschem sorbet
     catch
-        colorschem habamax
+        try
+            colorschem habamax
+        catch
+            colorschem default
+        endtry
     endtry
 endtry
 
