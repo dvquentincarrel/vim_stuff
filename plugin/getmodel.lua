@@ -27,3 +27,19 @@ get_model = function(width_percent, height_percent)
 end
 
 vim.keymap.set("n", "<leader>gm", function() get_model(80, 80) end)
+
+open_modules = function(width_percent, height_percent)
+    -- Sets up window
+    opp_setup_win(width_percent, height_percent)
+
+    -- on_stdout caught stderr as well
+    on_exit = function(job_id, exit_code, type)
+        vim.api.nvim_win_close(0, false)
+        dir = vim.fn.readfile('/tmp/nv_fzo')
+        vim.cmd.cd(dir)
+    end
+
+    -- Start script
+    vim.fn.termopen('_fzo > /tmp/nv_fzo', {on_exit=on_exit, on_data=on_stdout})
+end
+vim.keymap.set("n", "<leader>go", function() open_modules(80, 80) end)
