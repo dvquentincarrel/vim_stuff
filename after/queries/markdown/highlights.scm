@@ -29,10 +29,3 @@
   (atx_h6_marker)
   ((inline) @conditional)
 ) @conditional
-
-; # 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-; ## 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-; ### 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-; #### 4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-; ##### 5 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-; ###### 6 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
