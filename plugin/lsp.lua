@@ -28,12 +28,37 @@ cmp.setup({
     }
 })
 
-vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
-vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "K", vim.lsp.buf.hover)
-vim.keymap.set("n", "<leader>K", vim.lsp.buf.signature_help)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
-vim.keymap.set("n", "gli", vim.lsp.buf.implementation)
-vim.keymap.set("n", "glr", vim.lsp.buf.references)
-vim.keymap.set("n", "glR", vim.lsp.buf.rename)
+
+vim.api.nvim_create_user_command('StopLsp', function() vim.lsp.stop_client(vim.lsp.get_active_clients()) end, {})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+
+    vim.keymap.set("n", "K", vim.lsp.buf.hover) -- Same as nvim-lspconfig
+    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts) -- Same as nvim-lspconfig
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- Same as nvim-lspconfig
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- Same as nvim-lspconfig
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- Same as nvim-lspconfig
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- Same as nvim-lspconfig
+    vim.keymap.set("n", "grn", vim.lsp.buf.rename, opts)
+
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts) -- Same as nvim-lspconfig
+    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts) -- Same as nvim-lspconfig
+    vim.keymap.set('n', '<space>glf', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
+})
