@@ -9,18 +9,17 @@ vim.cmd('source '..git_path..'/vimrc')
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "python", "bash", "vim", "json", "html",
                          "markdown", "markdown_inline", "make", "sql" },
-    highlight = { enable = true },
+    highlight = {
+        enable = true ,
+        disable = function(lang, buf)
+            return vim.api.nvim_buf_line_count(buf) >= 15000
+        end
+
+    },
     incremental_selection = { enable = true },
     textobjects = { enable = true },
 }
 vim.treesitter.language.register("html", "xml")
-
-local TSgroup = vim.api.nvim_create_augroup('vimrc', {clear = true})
-vim.api.nvim_create_autocmd({'Filetype'}, {
-    pattern = 'python,sh,bash,vim,json,html,markdown',
-    group = TSgroup,
-    command = 'lua vim.treesitter.start()'
-})
 
 local HLYank = vim.api.nvim_create_autocmd({'TextYankPost'}, {
     pattern = '*',
