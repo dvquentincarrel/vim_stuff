@@ -14,7 +14,7 @@ if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
     echo "\t./install.sh -u"
     exit 0
 elif [ "$1" = "-u" ]; then
-    echo "\e[1mRemoving plugins...\e[m"
+    printf "\e[1mRemoving plugins...\e[m\n"
     [ -e "plugin/fzf.vim" ] && rm -v plugin/fzf.vim
     [ -d "pack" ] && rm -vrf ./pack
 
@@ -28,11 +28,11 @@ elif [ "$1" = "-u" ]; then
     exit 0
 fi
 
-echo "\e[1mInstalling init files...\e[m"
+printf "\e[1mInstalling init files...\e[m\n"
 [ -e "$vimdir/vimrc" ] || ln -Ts "$PWD"/vimrc "$vimdir"/vimrc
 [ -e "$nvimdir/init.lua" ] || ln -Ts "$PWD"/init.lua "$nvimdir"/init.lua
 
-echo "\n\e[1mInstalling Plugins...\e[m"
+printf "\n\e[1mInstalling Plugins...\e[m\n"
 for dir in $vim_plugin_dirs; do
     mkdir -p pack/$dir/start
 done
@@ -69,5 +69,5 @@ else
 	git  -C  pack/colors/start      clone  https://github.com/morhetz/gruvbox.git
 fi
 
-echo "\e[1mGenerating help tags...\e[m"
+printf "\e[1mGenerating help tags...\e[m\n"
 vim +'helptags ALL | q'
