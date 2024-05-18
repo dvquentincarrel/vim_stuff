@@ -9,7 +9,6 @@ require('mason-lspconfig').setup({
 })
 
 local cmp = require('cmp')
-
 cmp.setup({
   window = {
     completion = cmp.config.window.bordered(),
@@ -27,7 +26,6 @@ cmp.setup({
       },
     }
 })
-
 
 vim.api.nvim_create_user_command('StopLsp', function() vim.lsp.stop_client(vim.lsp.get_active_clients()) end, {})
 
