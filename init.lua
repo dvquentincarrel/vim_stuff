@@ -7,6 +7,7 @@ vim.opt.packpath = vim.opt.runtimepath:get()
 vim.cmd('source '..git_path..'/vimrc')
 
 require('init_treesitter')
+require('init_cmp')
 require('init_lsp')
 
 local HLYank = vim.api.nvim_create_autocmd({'TextYankPost'}, {

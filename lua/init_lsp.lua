@@ -8,25 +8,6 @@ require('mason-lspconfig').setup({
   }
 })
 
-local cmp = require('cmp')
-cmp.setup({
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
-    sources = {
-      { name = 'nvim_lsp_signature_help' },
-      { name = 'nvim_lsp' },
-      { name = 'buffer',
-        option = {
-          get_bufnrs = function()
-            return vim.api.nvim_list_bufs()
-          end
-        }
-      },
-    }
-})
-
 vim.api.nvim_create_user_command('StopLsp', function() vim.lsp.stop_client(vim.lsp.get_active_clients()) end, {})
 
 vim.api.nvim_create_autocmd('LspAttach', {
