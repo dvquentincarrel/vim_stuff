@@ -4,7 +4,7 @@ import re
 from datetime import timedelta
 from typing import Tuple
 
-TIME_REGEX=re.compile(r'^( *-? (\d\d:\d\d:\d\d) (\d\d:\d\d:\d\d))( *# (.*))?$')
+TIME_REGEX=re.compile(r'^( *-? (\d\d:\d\d:\d\d) (\d\d:\d\d:\d\d))( *# ?(.*))?$')
 
 def str_to_secs(time: str) -> int:
     """Gets how many seconds there are in a %HH:%MM:%SS-formatted string"""
