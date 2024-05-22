@@ -9,6 +9,7 @@ vim.cmd('source '..git_path..'/vimrc')
 require('init_treesitter')
 require('init_cmp')
 require('init_lsp')
+require('init_dap')
 
 local HLYank = vim.api.nvim_create_autocmd({'TextYankPost'}, {
     pattern = '*',

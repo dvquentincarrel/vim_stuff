@@ -2,7 +2,7 @@
 nvimdir="$HOME/.config/nvim"
 vimdir="$HOME/.vim"
 vim_plugin_dirs="airline colors fzf indentline narrow nerdtree signify tagbar tpope undotree xmlruntime"
-nvim_plugin_dirs="lsp treesitter"
+nvim_plugin_dirs="lsp treesitter dap"
 
 which vim >/dev/null && mkdir -p "$vimdir"
 which nvim >/dev/null && mkdir -p "$nvimdir"
@@ -65,6 +65,10 @@ if which nvim >/dev/null; then
     git  -C  pack/lsp/start         clone  https://github.com/williamboman/mason.nvim
     git  -C  pack/treesitter/start  clone  https://github.com/nvim-treesitter/nvim-treesitter
 	git  -C  pack/colors/start      clone  https://github.com/ellisonleao/gruvbox.nvim
+    git  -C  pack/dap/start         clone  https://github.com/mfussenegger/nvim-dap.git
+    git  -C  pack/dap/start         clone  https://github.com/rcarriga/nvim-dap-ui.git
+    git  -C  pack/dap/start         clone  https://github.com/theHamsta/nvim-dap-virtual-text.git
+    git  -C  pack/dap/start         clone  https://github.com/nvim-neotest/nvim-nio.git
 else
 	git  -C  pack/colors/start      clone  https://github.com/morhetz/gruvbox.git
 fi
