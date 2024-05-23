@@ -11,3 +11,6 @@ vim.keymap.set('n', '<Leader>dbl', function() dap.set_breakpoint(nil, nil, vim.f
 vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end)
 vim.keymap.set('n', '<Leader>dL', function() dap.run_last() end)
 vim.keymap.set('n', '<Leader>dut', function() dapui.toggle() end)
+vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
+  require('dap.ui.widgets').hover()
+end)
