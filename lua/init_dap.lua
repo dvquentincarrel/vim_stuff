@@ -53,6 +53,7 @@ vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
     require('dap.ui.widgets').hover()
 end)
 
+local ok
 ok, dappy = pcall(require, 'dap-python')
 if ok then
     dappy.setup()
