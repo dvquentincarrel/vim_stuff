@@ -8,6 +8,7 @@ function! Wedit(executable_name)
     endif
 endfunction
 command! -nargs=1 -complete=shellcmd Wedit :call Wedit('<args>')
+nmap <leader>W :Wedit <C-R><C-W><CR>
 
 " Work with columnated data
 function! Columns(mode)
