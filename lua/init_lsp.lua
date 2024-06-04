@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts) -- Same as nvim-lspconfig
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- Same as nvim-lspconfig
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- Same as nvim-lspconfig
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- Same as nvim-lspconfig
+    vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts) -- Same as nvim-lspconfig
     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- Same as nvim-lspconfig
     vim.keymap.set("n", "grn", vim.lsp.buf.rename, opts)
 
