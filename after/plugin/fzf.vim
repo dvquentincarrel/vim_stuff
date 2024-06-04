@@ -12,4 +12,10 @@ if exists(':Files')
     nnoremap <leader>fm :Marks<CR>
     nnoremap <leader>fc :BCommits<CR>
     nnoremap <leader>fC :Commits<CR>
+    nnoremap <leader>fh :Helptags<CR>
+    nnoremap <leader>fp :History<CR>
+endif
+
+if exists(':FzfLua')
+    FzfLua setup_fzfvim_cmds
 endif
