@@ -10,6 +10,7 @@ require('init_treesitter')
 require('init_cmp')
 require('init_lsp')
 require('init_dap')
+require('init_fzflua')
 
 local HLYank = vim.api.nvim_create_autocmd({'TextYankPost'}, {
     pattern = '*',

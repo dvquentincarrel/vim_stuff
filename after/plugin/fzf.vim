@@ -18,4 +18,5 @@ endif
 
 if exists(':FzfLua')
     FzfLua setup_fzfvim_cmds
+    nnoremap <leader>fg :lua require('fzf-lua').git_files({cwd=vim.loop.cwd()})<CR>
 endif
