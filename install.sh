@@ -1,7 +1,7 @@
 #!/bin/sh
 nvimdir="$HOME/.config/nvim"
 vimdir="$HOME/.vim"
-vim_plugin_dirs="airline colors fzf indentline narrow nerdtree signify tagbar tpope undotree xmlruntime"
+vim_plugin_dirs="airline colors fzf indentline narrow nerdtree signify smoothie tagbar tpope undotree xmlruntime"
 nvim_plugin_dirs="lsp treesitter dap devicons dressing"
 
 which vim >/dev/null && mkdir -p "$vimdir"
@@ -43,6 +43,7 @@ git  -C  pack/indentline/start        clone  https://github.com/Yggdroot/indentL
 git  -C  pack/narrow/start            clone  https://github.com/chrisbra/NrrwRgn.git
 git  -C  pack/nerdtree/start          clone  https://github.com/preservim/nerdtree
 git  -C  pack/signify/start           clone  https://github.com/mhinz/vim-signify
+git  -C  pack/smoothie/start          clone  https://github.com/psliwka/vim-smoothie.git
 git  -C  pack/tagbar/start            clone  https://github.com/preservim/tagbar
 git  -C  pack/tpope/start             clone  https://github.com/kristijanhusak/vim-dadbod-ui
 git  -C  pack/tpope/start             clone  https://github.com/tpope/vim-dadbod
