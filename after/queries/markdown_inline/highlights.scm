@@ -5,3 +5,5 @@
 
 ; ...  
 ((hard_line_break) @diff.delta)
+
+((emphasis) @markup.emphasis)
