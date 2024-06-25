@@ -31,10 +31,10 @@ nnoremap <F5> :Make<cr>
 nnoremap <F17> :execute b:altmakeprg<cr>
 nnoremap [q :cp<Cr>
 nnoremap ]q :cn<Cr>
-nnoremap <A-Down> <c-w>2-
-nnoremap <A-Up> <c-w>2+
-nnoremap <A-left> <c-w>4<
-nnoremap <A-right> <c-w>4>
+nnoremap <C-Down> <c-w>2-
+nnoremap <C-Up> <c-w>2+
+nnoremap <C-left> <c-w>4<
+nnoremap <C-right> <c-w>4>
 nnoremap <bs> :set hls!<cr>
 nnoremap <C-w>o :tabedit %<cr>
 nnoremap <leader>r :set rnu!<cr>
