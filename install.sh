@@ -2,7 +2,7 @@
 nvimdir="$HOME/.config/nvim"
 vimdir="$HOME/.vim"
 vim_plugin_dirs="airline colors fzf indentline narrow nerdtree signify smoothie tagbar tpope undotree xmlruntime"
-nvim_plugin_dirs="lsp treesitter dap devicons dressing"
+nvim_plugin_dirs="lsp treesitter dap devicons dressing luasnip"
 
 which vim >/dev/null && mkdir -p "$vimdir"
 which nvim >/dev/null && mkdir -p "$nvimdir"
@@ -73,6 +73,7 @@ if which nvim >/dev/null; then
     git  -C  pack/fzf/start         clone  https://github.com/ibhagwan/fzf-lua.git
     git  -C  pack/devicons/start    clone  https://github.com/nvim-tree/nvim-web-devicons
     git  -C  pack/dressing/start    clone  https://github.com/stevearc/dressing.nvim.git
+    git  -C  pack/luasnip/start     clone  https://github.com/L3MON4D3/LuaSnip.git
 else
 	git  -C  pack/colors/start      clone  https://github.com/morhetz/gruvbox.git
 fi
