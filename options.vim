@@ -100,7 +100,4 @@ let g:netrw_list_hide='\(^\|\s\s\)\zs\.\S\+' " Hides hidden files
 let NERDTreeRespectWildIgnore=1
 let NERDTreeMouseMode=3
 
-" indentLine plugin
-let g:indentLine_concealcursor = '' " Hide indentation marks on current line
-
 let b:altmakeprg = 'silent !true'
