@@ -1,0 +1,37 @@
+snippet #!
+	#!/bin/python
+
+snippet pdb
+	import ${1|pdb,pudb,ipdb|}; $1.${2|set_trace,post_mortem|}()
+
+snippet debugpy
+	import debugpy
+	if not debugpy.is_client_connected():
+		print('\n\tWAITING FOR DEBUGPY CLIENT\n')
+	    debugpy.listen(5678)
+	    debugpy.wait_for_client()
+		debugpy.breakpoint()
+
+#=============
+#    Odoo
+#=============
+snippet bfield
+    fields.Boolean(string="$0")
+
+snippet cfield
+    fields.Char(string="$0")
+
+snippet ifield
+    fields.Integer(string="$0")
+
+snippet ffield
+    fields.Float(string="$1", digits=dp.get_precision('$2'))
+
+snippet mfield
+    fields.Many2one('${1:Comodel name}', string="$2", ondelete='${3|set null,cascade,restrict,set default,no action|}')
+
+snippet mmfield
+    fields.Many2many('${1:Comodel name}', relation='${2:Table name (opt)}', string="${3:Field name}")
+
+snippet ofield
+    fields.One2many('${1:Comodel name}', '${2:Comodel's field}', string="${3:Field name}")
