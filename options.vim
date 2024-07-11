@@ -38,6 +38,7 @@ set ruler " show the cursor position all the time
 set foldmethod=indent " Generally saner than alternatives
 set nofoldenable " User is required to `zi` to enable folds
 set listchars=tab:¦\ ,trail:·,nbsp:+,lead:\ 
+set conceallevel=1
 if has('nvim')
     setglobal signcolumn=auto:2-9
 endif
