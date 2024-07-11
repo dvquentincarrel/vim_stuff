@@ -1,0 +1,10 @@
+snippet mfield
+	<field name="${1:model}_rc" string="global_labels.${2:label}" type="many2one" onchange="$3" model="$4" />
+
+snippet ofield
+	<field name="${1:model}_ids" string="global_labels.${2:label}" type="one2many" onchange="$3" model="$4" >
+		<label name="id" attrs="{'invisible':1}"/>
+	</field>
+
+snippet obutton
+	<button string="global_labels.${1:label}" onchange="$2" class="btn_${3|validate,cancel|}" />
