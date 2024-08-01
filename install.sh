@@ -63,6 +63,7 @@ if which nvim >/dev/null; then
     git  -C  pack/lsp/start         clone  https://github.com/neovim/nvim-lspconfig
     git  -C  pack/lsp/start         clone  https://github.com/williamboman/mason-lspconfig.nvim
     git  -C  pack/lsp/start         clone  https://github.com/williamboman/mason.nvim
+    git  -C  pack/lsp/start         clone  https://github.com/SmiteshP/nvim-navic.git
     git  -C  pack/treesitter/start  clone  https://github.com/nvim-treesitter/nvim-treesitter
 	git  -C  pack/colors/start      clone  https://github.com/ellisonleao/gruvbox.nvim
     git  -C  pack/dap/start         clone  https://github.com/mfussenegger/nvim-dap.git
