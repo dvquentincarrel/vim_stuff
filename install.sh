@@ -39,7 +39,6 @@ done
 git  -C  pack/airline/start           clone  https://github.com/vim-airline/vim-airline.git
 git  -C  pack/fzf/start               clone  https://github.com/junegunn/fzf.vim
 wget -P  plugin --quiet --no-clobber 'https://raw.githubusercontent.com/junegunn/fzf/master/plugin/fzf.vim'
-git  -C  pack/indentline/start        clone  https://github.com/Yggdroot/indentLine
 git  -C  pack/narrow/start            clone  https://github.com/chrisbra/NrrwRgn.git
 git  -C  pack/nerdtree/start          clone  https://github.com/preservim/nerdtree
 git  -C  pack/signify/start           clone  https://github.com/mhinz/vim-signify
@@ -75,8 +74,10 @@ if which nvim >/dev/null; then
     git  -C  pack/dressing/start    clone  https://github.com/stevearc/dressing.nvim.git
     git  -C  pack/luasnip/start     clone  https://github.com/L3MON4D3/LuaSnip.git
     git  -C  pack/oil/start         clone  https://github.com/stevearc/oil.nvim.git
-else
+    git  -C  pack/indentline/start  clone  https://github.com/lukas-reineke/indent-blankline.nvim.git
+else # Vim-only variants
 	git  -C  pack/colors/start      clone  https://github.com/morhetz/gruvbox.git
+    git  -C  pack/indentline/start        clone  https://github.com/Yggdroot/indentLine
 fi
 
 printf "\e[1mGenerating help tags...\e[m\n"
