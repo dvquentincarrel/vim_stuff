@@ -6,10 +6,11 @@ inoremap <C-R> <C-G>u<C-R>
 inoremap <A-Up> <esc>m':m-2<CR>``a
 inoremap <A-Down> <esc>m':m+1<CR>``a
 inoremap jj <esc>
+inoremap jk <esc>
 " overwrites 'insert char below cursor'
-inoremap <C-e> <C-o>$
+noremap! <C-e> <End>
 " overwrites 'insert again'
-inoremap <C-a> <C-o>^
+noremap! <C-a> <Home>
 
 if has('clipboard')
 	vnoremap <C-c> "+y
