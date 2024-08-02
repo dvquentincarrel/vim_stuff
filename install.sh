@@ -72,6 +72,7 @@ if which nvim >/dev/null; then
     git  -C  pack/dap/start         clone  https://github.com/rcarriga/nvim-dap-ui.git
     git  -C  pack/dap/start         clone  https://github.com/theHamsta/nvim-dap-virtual-text.git
     git  -C  pack/dap/start         clone  https://github.com/nvim-neotest/nvim-nio.git
+    git  -C  pack/dap/start         clone  https://github.com/mfussenegger/nvim-dap-python.git
     git  -C  pack/fzf/start         clone  https://github.com/ibhagwan/fzf-lua.git
     git  -C  pack/devicons/start    clone  https://github.com/nvim-tree/nvim-web-devicons
     git  -C  pack/dressing/start    clone  https://github.com/stevearc/dressing.nvim.git
