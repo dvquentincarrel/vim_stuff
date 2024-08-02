@@ -35,3 +35,9 @@ snippet mmfield
 
 snippet ofield
     fields.One2many('${1:Comodel name}', '${2:Comodel's field}', string="${3:Field name}")
+
+snippet env
+	self.env['$0']
+
+snippet ser
+	('${1:field}', '${2:operator}', ${3:val})
