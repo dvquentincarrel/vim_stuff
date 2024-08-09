@@ -24,7 +24,11 @@ vim.keymap.set(
     {silent = true, desc = "Cycle through options for snippet var"})
 
 function reload_snippets(t)
-    paths = t[1] or vim.env.GIT_PATH..'/snippets'
+    if t[1] == nil or t[1] == '' then
+        paths = vim.env.GIT_PATH..'/snippets'
+    else
+        paths = t[1]
+    end
     require("luasnip.loaders.from_snipmate").load({paths=paths})
 end
 
