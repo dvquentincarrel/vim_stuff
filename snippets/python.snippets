@@ -12,6 +12,17 @@ snippet debugpy
 	    debugpy.wait_for_client()
 		debugpy.breakpoint()
 
+snippet argparse
+	import argparse
+
+	parser = argparse.ArgumentParser(
+		formatter_class=argparse.RawDescriptionHelpFormatter,
+	)
+
+	args = parser.parse_args()
+
+    
+
 #=============
 #    Odoo
 #=============
@@ -38,6 +49,9 @@ snippet ofield
 
 snippet env
 	self.env['$0']
+
+snippet cont
+	self.env.context
 
 snippet ser
 	('${1:field}', '${2:operator}', ${3:val})
