@@ -13,7 +13,6 @@ local init_files = {
     'init_dap',
     'init_fzflua',
     'init_luasnip',
-    'init_oil'
 }
 for _, file_name in ipairs(init_files) do
     require(file_name)
