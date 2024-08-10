@@ -21,7 +21,11 @@ snippet argparse
 
 	args = parser.parse_args()
 
-    
+snippet try
+    try:
+        ${1:# ...}
+    except ${2:Exception} as ${3:e}:
+        ${4:# ...}
 
 #=============
 #    Odoo
