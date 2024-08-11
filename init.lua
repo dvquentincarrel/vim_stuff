@@ -4,6 +4,7 @@ vim.env.GIT_PATH = git_path
 vim.opt.runtimepath:append(git_path)
 vim.opt.runtimepath:append(git_path..'/after')
 vim.opt.packpath = vim.opt.runtimepath:get()
+vim.g.editorconfig = false
 vim.cmd('source '..git_path..'/vimrc')
 
 local init_files = {
