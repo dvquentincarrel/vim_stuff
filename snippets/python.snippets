@@ -8,8 +8,8 @@ snippet debugpy
 	import debugpy
 	if not debugpy.is_client_connected():
 		print('\n\tWAITING FOR DEBUGPY CLIENT\n')
-	    debugpy.listen(5678)
-	    debugpy.wait_for_client()
+		debugpy.listen(5678)
+		debugpy.wait_for_client()
 		debugpy.breakpoint()
 
 snippet argparse
@@ -22,34 +22,64 @@ snippet argparse
 	args = parser.parse_args()
 
 snippet try
-    try:
-        ${1:# ...}
-    except ${2:Exception} as ${3:e}:
-        ${4:# ...}
+	try:
+		${1:# ...}
+	except ${2:Exception} as ${3:e}:
+		${4:# ...}
+
+snippet :ret
+	:return: ${1:description}
+
+snippet :par
+	:param ${1:name}: ${2:description}
+
+snippet :rai
+	:raises ${1:name}: ${2:description}
+
+snippet def
+	def ${1:Name}(self, ${2:Args}):
+		"""${3:Description}
+
+		:param ${4:name}: ${5:description}
+		:return: ${6:description}
+		:raises ${7:Name}: ${8:description}
+		"""
+
+snippet class
+	class ${1:Name}:
+		"""${2:Description}"""
+
+		def __init__(self, ${3:args}):
+			"""${4:Description}
+
+			:param ${5:name}: ${6:description}
+			:return: ${7:description}
+			:raises ${8:Name}: ${9:description}
+			"""
 
 #=============
 #    Odoo
 #=============
 snippet bfield
-    fields.Boolean(string="$0")
+	fields.Boolean(string="$0")
 
 snippet cfield
-    fields.Char(string="$0")
+	fields.Char(string="$0")
 
 snippet ifield
-    fields.Integer(string="$0")
+	fields.Integer(string="$0")
 
 snippet ffield
-    fields.Float(string="$1", digits=dp.get_precision('$2'))
+	fields.Float(string="$1", digits=dp.get_precision('$2'))
 
 snippet mfield
-    fields.Many2one('${1:Comodel name}', string="$2", ondelete='${3|set null,cascade,restrict,set default,no action|}')
+	fields.Many2one('${1:Comodel name}', string="$2", ondelete='${3|set null,cascade,restrict,set default,no action|}')
 
 snippet mmfield
-    fields.Many2many('${1:Comodel name}', relation='${2:Table name (opt)}', string="${3:Field name}")
+	fields.Many2many('${1:Comodel name}', relation='${2:Table name (opt)}', string="${3:Field name}")
 
 snippet ofield
-    fields.One2many('${1:Comodel name}', '${2:Comodel's field}', string="${3:Field name}")
+	fields.One2many('${1:Comodel name}', '${2:Comodel's field}', string="${3:Field name}")
 
 snippet env
 	self.env['$0']
