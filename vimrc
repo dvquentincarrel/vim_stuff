@@ -32,4 +32,5 @@ catch
     endtry
 endtry
 
+" Allows background to be transparent
 hi Normal ctermbg=None

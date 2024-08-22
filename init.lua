@@ -25,3 +25,5 @@ local HLYank = vim.api.nvim_create_autocmd({'TextYankPost'}, {
     pattern = '*',
     command = 'lua vim.highlight.on_yank({on_visual=false, timeout=750})'
 })
+
+vim.cmd('hi Normal guibg=None')
