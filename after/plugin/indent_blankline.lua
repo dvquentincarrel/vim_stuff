@@ -2,7 +2,7 @@ ok, ibl = pcall(require, 'ibl')
 if ok then
     ibl.setup({
         scope = {
-            highlight = "@symbol",
+            highlight = "Identifier",
             show_start = false,
             show_end = false,
             include = {
