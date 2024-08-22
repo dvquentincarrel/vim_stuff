@@ -1,3 +1,11 @@
+local fzf_packs = {
+    'fzf.vim',
+    'fzf-lua',
+}
+for _, pack_name in ipairs(fzf_packs) do
+    vim.cmd.packadd(pack_name)
+end
+
 local ok, fzflua = pcall(require, 'fzf-lua')
 if ok then
     fzflua.setup{

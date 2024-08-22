@@ -5,19 +5,21 @@ vim.opt.runtimepath:append(git_path)
 vim.opt.runtimepath:append(git_path..'/after')
 vim.opt.packpath = vim.opt.runtimepath:get()
 vim.g.editorconfig = false
-vim.cmd('source '..git_path..'/vimrc')
 
 local init_files = {
+    'init_misc_packs',
+    'init_fzflua',
     'init_treesitter',
     'init_cmp',
     'init_lsp',
     'init_dap',
-    'init_fzflua',
     'init_luasnip',
 }
 for _, file_name in ipairs(init_files) do
     require(file_name)
 end
+
+vim.cmd('source '..git_path..'/vimrc')
 
 local HLYank = vim.api.nvim_create_autocmd({'TextYankPost'}, {
     pattern = '*',

@@ -1,3 +1,13 @@
+local cmp_packs = {
+    'cmp-buffer',
+    'cmp-nvim-lsp',
+    'cmp-nvim-lsp-signature-help',
+    'nvim-cmp',
+}
+for _, pack_name in ipairs(cmp_packs) do
+    vim.cmd.packadd(pack_name)
+end
+
 local cmp = require('cmp')
 
 cmp.setup({
@@ -36,10 +46,10 @@ cmp.setup({
     },
 })
 
--- `/` cmdline setup.
-cmp.setup.cmdline('/', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-        { name = 'buffer' }
-    }
-})
+---- `/` cmdline setup.
+--cmp.setup.cmdline('/', {
+--    mapping = cmp.mapping.preset.cmdline(),
+--    sources = {
+--        { name = 'buffer' }
+--    }
+--})

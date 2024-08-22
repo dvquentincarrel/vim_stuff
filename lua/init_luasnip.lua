@@ -1,3 +1,4 @@
+vim.cmd.packadd('LuaSnip')
 local ls = require("luasnip")
 
 vim.keymap.set(

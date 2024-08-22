@@ -1,3 +1,14 @@
+local dap_packs = {
+    'nvim-dap',
+    'nvim-dap-ui',
+    'nvim-dap-virtual-text',
+    'nvim-nio',
+    'nvim-dap-python',
+}
+for _, pack_name in ipairs(dap_packs) do
+    vim.cmd.packadd(pack_name)
+end
+
 dap = require("dap")
 dapui = require("dapui")
 dapui.setup()

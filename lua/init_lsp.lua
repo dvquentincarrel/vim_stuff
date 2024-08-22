@@ -1,3 +1,19 @@
+local lsp_packs = {
+    'lsp-zero.nvim',
+    'cmp-buffer',
+    'cmp-nvim-lsp',
+    'cmp-nvim-lsp-signature-help',
+    'nvim-cmp',
+    'nvim-lspconfig',
+    'mason-lspconfig.nvim',
+    'mason.nvim',
+    'nvim-navic',
+}
+for _, pack_name in ipairs(lsp_packs) do
+    vim.cmd.packadd(pack_name)
+end
+
+
 local lsp_zero = require('lsp-zero')
 
 require('mason').setup({})

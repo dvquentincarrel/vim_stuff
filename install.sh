@@ -34,53 +34,52 @@ printf "\e[1mInstalling init files...\e[m\n"
 
 printf "\n\e[1mInstalling Plugins...\e[m\n"
 for dir in $vim_plugin_dirs; do
-    mkdir -p pack/$dir/start
+    mkdir -p pack/$dir/opt
 done
-git  -C  pack/airline/start           clone  https://github.com/vim-airline/vim-airline.git
-git  -C  pack/fzf/start               clone  https://github.com/junegunn/fzf.vim
+git  -C  pack/airline/opt           clone  https://github.com/vim-airline/vim-airline.git
+git  -C  pack/fzf/opt               clone  https://github.com/junegunn/fzf.vim
 wget -P  plugin --quiet --no-clobber 'https://raw.githubusercontent.com/junegunn/fzf/master/plugin/fzf.vim'
-git  -C  pack/narrow/start            clone  https://github.com/chrisbra/NrrwRgn.git
-git  -C  pack/nerdtree/start          clone  https://github.com/preservim/nerdtree
-git  -C  pack/signify/start           clone  https://github.com/mhinz/vim-signify
-git  -C  pack/smoothie/start          clone  https://github.com/psliwka/vim-smoothie.git
-git  -C  pack/tagbar/start            clone  https://github.com/preservim/tagbar
-git  -C  pack/tpope/start             clone  https://github.com/kristijanhusak/vim-dadbod-ui
-git  -C  pack/tpope/start             clone  https://github.com/tpope/vim-dadbod
-git  -C  pack/tpope/start             clone  https://github.com/tpope/vim-fugitive
-git  -C  pack/tpope/start             clone  https://github.com/tpope/vim-surround
-git  -C  pack/undotree/start          clone  https://github.com/mbbill/undotree
-git  -C  pack/xmlruntime/start        clone  https://github.com/chrisbra/vim-xml-runtime
+git  -C  pack/narrow/opt            clone  https://github.com/chrisbra/NrrwRgn.git
+git  -C  pack/nerdtree/opt          clone  https://github.com/preservim/nerdtree
+git  -C  pack/signify/opt           clone  https://github.com/mhinz/vim-signify
+git  -C  pack/smoothie/opt          clone  https://github.com/psliwka/vim-smoothie.git
+git  -C  pack/tagbar/opt            clone  https://github.com/preservim/tagbar
+git  -C  pack/tpope/opt             clone  https://github.com/kristijanhusak/vim-dadbod-ui
+git  -C  pack/tpope/opt             clone  https://github.com/tpope/vim-dadbod
+git  -C  pack/tpope/opt             clone  https://github.com/tpope/vim-fugitive
+git  -C  pack/tpope/opt             clone  https://github.com/tpope/vim-surround
+git  -C  pack/undotree/opt          clone  https://github.com/mbbill/undotree
+git  -C  pack/xmlruntime/opt        clone  https://github.com/chrisbra/vim-xml-runtime
 if which nvim >/dev/null; then
     for dir in $nvim_plugin_dirs; do
-        mkdir -p pack/$dir/start
+        mkdir -p pack/$dir/opt
     done
-    git  -C  pack/lsp/start         clone  https://github.com/L3MON4D3/LuaSnip
-    git  -C  pack/lsp/start         clone  https://github.com/VonHeikemen/lsp-zero.nvim
-    git  -C  pack/lsp/start         clone  https://github.com/hrsh7th/cmp-buffer
-    git  -C  pack/lsp/start         clone  https://github.com/hrsh7th/cmp-nvim-lsp
-    git  -C  pack/lsp/start         clone  https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
-    git  -C  pack/lsp/start         clone  https://github.com/hrsh7th/nvim-cmp
-    git  -C  pack/lsp/start         clone  https://github.com/neovim/nvim-lspconfig
-    git  -C  pack/lsp/start         clone  https://github.com/williamboman/mason-lspconfig.nvim
-    git  -C  pack/lsp/start         clone  https://github.com/williamboman/mason.nvim
-    git  -C  pack/lsp/start         clone  https://github.com/SmiteshP/nvim-navic.git
-    git  -C  pack/treesitter/start  clone  https://github.com/nvim-treesitter/nvim-treesitter
-    git  -C  pack/treesitter/start  clone  https://github.com/nvim-treesitter/nvim-treesitter-refactor.git
-    git  -C  pack/treesitter/start  clone  https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
-	git  -C  pack/colors/start      clone  https://github.com/ellisonleao/gruvbox.nvim
-    git  -C  pack/dap/start         clone  https://github.com/mfussenegger/nvim-dap.git
-    git  -C  pack/dap/start         clone  https://github.com/rcarriga/nvim-dap-ui.git
-    git  -C  pack/dap/start         clone  https://github.com/theHamsta/nvim-dap-virtual-text.git
-    git  -C  pack/dap/start         clone  https://github.com/nvim-neotest/nvim-nio.git
-    git  -C  pack/dap/start         clone  https://github.com/mfussenegger/nvim-dap-python.git
-    git  -C  pack/fzf/start         clone  https://github.com/ibhagwan/fzf-lua.git
-    git  -C  pack/devicons/start    clone  https://github.com/nvim-tree/nvim-web-devicons
-    git  -C  pack/dressing/start    clone  https://github.com/stevearc/dressing.nvim.git
-    git  -C  pack/luasnip/start     clone  https://github.com/L3MON4D3/LuaSnip.git
-    git  -C  pack/indentline/start  clone  https://github.com/lukas-reineke/indent-blankline.nvim.git
+    git  -C  pack/lsp/opt         clone  https://github.com/VonHeikemen/lsp-zero.nvim
+    git  -C  pack/lsp/opt         clone  https://github.com/hrsh7th/cmp-buffer
+    git  -C  pack/lsp/opt         clone  https://github.com/hrsh7th/cmp-nvim-lsp
+    git  -C  pack/lsp/opt         clone  https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
+    git  -C  pack/lsp/opt         clone  https://github.com/hrsh7th/nvim-cmp
+    git  -C  pack/lsp/opt         clone  https://github.com/neovim/nvim-lspconfig
+    git  -C  pack/lsp/opt         clone  https://github.com/williamboman/mason-lspconfig.nvim
+    git  -C  pack/lsp/opt         clone  https://github.com/williamboman/mason.nvim
+    git  -C  pack/lsp/opt         clone  https://github.com/SmiteshP/nvim-navic.git
+    git  -C  pack/treesitter/opt  clone  https://github.com/nvim-treesitter/nvim-treesitter
+    git  -C  pack/treesitter/opt  clone  https://github.com/nvim-treesitter/nvim-treesitter-refactor.git
+    git  -C  pack/treesitter/opt  clone  https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
+	git  -C  pack/colors/opt      clone  https://github.com/ellisonleao/gruvbox.nvim
+    git  -C  pack/dap/opt         clone  https://github.com/mfussenegger/nvim-dap.git
+    git  -C  pack/dap/opt         clone  https://github.com/rcarriga/nvim-dap-ui.git
+    git  -C  pack/dap/opt         clone  https://github.com/theHamsta/nvim-dap-virtual-text.git
+    git  -C  pack/dap/opt         clone  https://github.com/nvim-neotest/nvim-nio.git
+    git  -C  pack/dap/opt         clone  https://github.com/mfussenegger/nvim-dap-python.git
+    git  -C  pack/fzf/opt         clone  https://github.com/ibhagwan/fzf-lua.git
+    git  -C  pack/devicons/opt    clone  https://github.com/nvim-tree/nvim-web-devicons
+    git  -C  pack/dressing/opt    clone  https://github.com/stevearc/dressing.nvim.git
+    git  -C  pack/luasnip/opt     clone  https://github.com/L3MON4D3/LuaSnip.git
+    git  -C  pack/indentline/opt  clone  https://github.com/lukas-reineke/indent-blankline.nvim.git
 else # Vim-only variants
-	git  -C  pack/colors/start      clone  https://github.com/morhetz/gruvbox.git
-    git  -C  pack/indentline/start        clone  https://github.com/Yggdroot/indentLine
+	git  -C  pack/colors/opt      clone  https://github.com/morhetz/gruvbox.git
+    git  -C  pack/indentline/opt        clone  https://github.com/Yggdroot/indentLine
 fi
 
 printf "\e[1mGenerating help tags...\e[m\n"

@@ -1,3 +1,12 @@
+local treesitter_packs = {
+    'nvim-treesitter',
+    'nvim-treesitter-refactor',
+    'nvim-treesitter-textobjects',
+}
+for _, pack_name in ipairs(treesitter_packs) do
+    vim.cmd.packadd(pack_name)
+end
+
 function disable_cond(lang, buf) -- Disable treesitter for files larger than 15k lines
     return vim.api.nvim_buf_line_count(buf) >= 15000
 end
