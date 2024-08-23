@@ -3,7 +3,9 @@ if ! has('nvim')
     let $GIT_PATH = substitute(init_real_path, '/vimrc', '', '')
     source $GIT_PATH/old_vim/packs.vim
     for script in split(expand($GIT_PATH.."/old_vim/*.vim"))
-        exec "source "..script
+        if script != $GIT_PATH..'/old_vim/packs.vim'
+            exec "source "..script
+        endif
     endfor
 endif
 
