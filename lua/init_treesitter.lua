@@ -26,7 +26,7 @@ require 'nvim-treesitter.configs'.setup {
     highlight = { enable = true, disable = disable_cond },
     refactor = {
         highlight_definitions = {
-            enable = true,
+            --enable = true,
             disable = disable_cond,
             clear_on_cursor_move = true,
         },
@@ -34,6 +34,7 @@ require 'nvim-treesitter.configs'.setup {
     textobjects = {
         select = {
             enable = true,
+            disable = disable_cond,
             -- Automatically jump forward to textobj, similar to targets.vim
             lookahead = true,
             keymaps = {
