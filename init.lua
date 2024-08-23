@@ -6,6 +6,8 @@ vim.opt.runtimepath:append(git_path..'/after')
 vim.opt.packpath = vim.opt.runtimepath:get()
 vim.g.editorconfig = false
 
+vim.g.mapleader = ' '
+
 local init_files = {
     'init_misc_packs',
     'init_fzflua',
