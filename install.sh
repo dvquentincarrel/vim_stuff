@@ -36,7 +36,6 @@ printf "\n\e[1mInstalling Plugins...\e[m\n"
 for dir in $vim_plugin_dirs; do
     mkdir -p pack/$dir/opt
 done
-git  -C  pack/airline/opt           clone  https://github.com/vim-airline/vim-airline.git
 git  -C  pack/fzf/opt               clone  https://github.com/junegunn/fzf.vim
 wget -P  plugin --quiet --no-clobber 'https://raw.githubusercontent.com/junegunn/fzf/master/plugin/fzf.vim'
 git  -C  pack/narrow/opt            clone  https://github.com/chrisbra/NrrwRgn.git
@@ -50,6 +49,9 @@ git  -C  pack/tpope/opt             clone  https://github.com/tpope/vim-fugitive
 git  -C  pack/tpope/opt             clone  https://github.com/tpope/vim-surround
 git  -C  pack/undotree/opt          clone  https://github.com/mbbill/undotree
 git  -C  pack/xmlruntime/opt        clone  https://github.com/chrisbra/vim-xml-runtime
+git  -C  pack/colors/opt      clone  https://github.com/morhetz/gruvbox.git
+git  -C  pack/indentline/opt        clone  https://github.com/Yggdroot/indentLine
+git  -C  pack/airline/opt           clone  https://github.com/vim-airline/vim-airline.git
 if which nvim >/dev/null; then
     for dir in $nvim_plugin_dirs; do
         mkdir -p pack/$dir/opt
@@ -77,9 +79,6 @@ if which nvim >/dev/null; then
     git  -C  pack/dressing/opt    clone  https://github.com/stevearc/dressing.nvim.git
     git  -C  pack/luasnip/opt     clone  https://github.com/L3MON4D3/LuaSnip.git
     git  -C  pack/indentline/opt  clone  https://github.com/lukas-reineke/indent-blankline.nvim.git
-else # Vim-only variants
-	git  -C  pack/colors/opt      clone  https://github.com/morhetz/gruvbox.git
-    git  -C  pack/indentline/opt        clone  https://github.com/Yggdroot/indentLine
 fi
 
 printf "\e[1mGenerating help tags...\e[m\n"
