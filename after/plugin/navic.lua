@@ -5,5 +5,4 @@ if ok then
         highlight = true,
         safe_output = true,
     }
-    vim.o.winbar = "%{%v:lua.navic.get_location()%}"
 end

@@ -2,7 +2,7 @@
 nvimdir="$HOME/.config/nvim"
 vimdir="$HOME/.vim"
 vim_plugin_dirs="airline colors fzf indentline narrow nerdtree signify smoothie tagbar tpope undotree xmlruntime"
-nvim_plugin_dirs="lsp treesitter dap devicons dressing luasnip oil"
+nvim_plugin_dirs="lsp treesitter dap devicons dressing luasnip oil lualine"
 
 which vim >/dev/null && mkdir -p "$vimdir"
 which nvim >/dev/null && mkdir -p "$nvimdir"
@@ -79,6 +79,7 @@ if which nvim >/dev/null; then
     git  -C  pack/dressing/opt    clone  https://github.com/stevearc/dressing.nvim.git
     git  -C  pack/luasnip/opt     clone  https://github.com/L3MON4D3/LuaSnip.git
     git  -C  pack/indentline/opt  clone  https://github.com/lukas-reineke/indent-blankline.nvim.git
+    git  -C  pack/lualine/opt     clone  https://github.com/nvim-lualine/lualine.nvim.git
 fi
 
 printf "\e[1mGenerating help tags...\e[m\n"

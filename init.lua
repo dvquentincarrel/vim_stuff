@@ -14,6 +14,7 @@ local init_files = {
     'init_lsp',
     'init_dap',
     'init_luasnip',
+    'init_lualine',
 }
 for _, file_name in ipairs(init_files) do
     require(file_name)
