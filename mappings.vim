@@ -25,6 +25,8 @@ vnoremap S :call VisSurround("around")<cr>
 vnoremap < <gv
 vnoremap > >gv
 
+nnoremap gh ^
+nnoremap gl $
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprevious<cr>
 nnoremap <F14> :execute b:formatter<CR>
