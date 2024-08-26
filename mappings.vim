@@ -19,7 +19,6 @@ else
 endif
 vnoremap <tab> >gv
 vnoremap <S-tab> <gv
-vnoremap <leader>col :!column -t<cr>
 vnoremap s :call VisSurround("inline")<cr>
 vnoremap S :call VisSurround("around")<cr>
 vnoremap < <gv
@@ -27,25 +26,27 @@ vnoremap > >gv
 
 nnoremap gh ^
 nnoremap gl $
-nnoremap ]b :bnext<cr>
-nnoremap [b :bprevious<cr>
-nnoremap <F14> :execute b:formatter<CR>
-nnoremap <F5> :Make<cr>
-nnoremap <F17> :execute b:altmakeprg<cr>
-nnoremap [q :cp<Cr>
-nnoremap ]q :cn<Cr>
+nnoremap ]b <cmd>bnext<cr>
+nnoremap [b <cmd>bprevious<cr>
+nnoremap ]t <cmd>1tag<CR>
+nnoremap [t <cmd>1pop<CR>
+nnoremap <F14> <cmd>execute b:formatter<CR>
+nnoremap <F5> <cmd>Make<cr>
+nnoremap <F17> <cmd>execute b:altmakeprg<cr>
+nnoremap [q <cmd>cp<Cr>
+nnoremap ]q <cmd>cn<Cr>
 nnoremap <C-Down> <c-w>2-
 nnoremap <C-Up> <c-w>2+
 nnoremap <C-left> <c-w>4<
 nnoremap <C-right> <c-w>4>
-nnoremap <bs> :set hls!<cr>
-nnoremap <C-w>o :tabedit %<cr>
-nnoremap <leader>r :set rnu!<cr>
-nnoremap gf :e <cfile><CR>
-nnoremap <c-w>gf :tabe <cfile><CR>
+nnoremap <bs> <cmd>set hls!<cr>
+nnoremap <C-w>o <cmd>tabedit %<cr>
+nnoremap <leader>r <cmd>set rnu!<cr>
+nnoremap gf <cmd>e <cfile><CR>
+nnoremap <c-w>gf <cmd>tabe <cfile><CR>
 nmap <leader>gf <C-w>gf
 nmap <leader>gF <C-w>gF
-nnoremap <leader>/ :let @/='\<<C-R><C-W>\>'<CR>:set hls<CR>
+nnoremap <leader>/ <cmd>let @/='\<<C-R><C-W>\>'<CR>:set hls<CR>
 nnoremap <leader>c "+c
 nnoremap <expr> c v:register =~ '[\*+]' ? '""c' : 'c'
 nnoremap <expr> C v:register =~ '[\*+]' ? '""C' : 'C'
@@ -60,10 +61,10 @@ nnoremap <leader>vff :let g:fuzzy_split='vert' <bar> :vs <bar> :term fzf<CR>
 nnoremap <leader>fl :let fuzzy_line = input('Fuzzy pattern: ') <bar> :exec 'vim /'.fuzzy_line.'/f %' <bar> :copen <cr>
 
 " For Uppercase
-onoremap u :call search('\u')<cr>
+onoremap u <cmd>call search('\u')<cr>
 " For Dot
-onoremap D :call search('\.')<cr>
+onoremap D <cmd>call search('\.')<cr>
 " For underScore
-onoremap s :call search('_')<cr>
+onoremap s <cmd>call search('_')<cr>
 
 tnoremap <Esc> <C-\><C-N>
