@@ -46,7 +46,7 @@ nnoremap gf <cmd>e <cfile><CR>
 nnoremap <c-w>gf <cmd>tabe <cfile><CR>
 nmap <leader>gf <C-w>gf
 nmap <leader>gF <C-w>gF
-nnoremap <leader>/ <cmd>let @/='\<<C-R><C-W>\>'<CR>:set hls<CR>
+nnoremap <leader>/ <cmd>let @/='\<'..expand('<cword>')..'\>'<CR><cmd>call histadd('search', @/)<CR><cmd>set hls<CR>
 nnoremap <leader>c "+c
 nnoremap <expr> c v:register =~ '[\*+]' ? '""c' : 'c'
 nnoremap <expr> C v:register =~ '[\*+]' ? '""C' : 'C'
