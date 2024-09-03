@@ -12,7 +12,7 @@ require('lualine').setup{
         },
         ignore_focus = {},
         always_divide_middle = true,
-        globalstatus = true,
+        globalstatus = false,
         refresh = {
             statusline = 1000,
             tabline = 1000,
@@ -22,7 +22,7 @@ require('lualine').setup{
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'diagnostics'},
-        lualine_c = {'filename', 'navic'},
+        lualine_c = {'%f', 'navic'},
         lualine_x = {'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'searchcount', 'location'}
