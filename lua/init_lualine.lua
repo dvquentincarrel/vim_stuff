@@ -28,7 +28,7 @@ require('lualine').setup{
         lualine_z = {'searchcount', 'location'}
     },
     inactive_sections = {
-        lualine_a = {},
+        lualine_a = {'%f'},
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
