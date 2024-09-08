@@ -22,7 +22,7 @@ require('lualine').setup{
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'diagnostics'},
-        lualine_c = {'%f', 'navic'},
+        lualine_c = {'%f %m%r', 'navic'},
         lualine_x = {'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'searchcount', 'location'}
