@@ -84,9 +84,6 @@ if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has
   runtime ftplugin/man.vim
 endif
 
-" Markdown plugin
-let g:markdown_minlines = 250 " Number of lines to look around for markdown syntax context with markdown plugin
-
 " Keywords-mod "plugin"
 let g:und_kw = 1 " Used to toggle underscore as a keyword
 let g:dot_kw = 0 " Used to toggle dot as a keyword
