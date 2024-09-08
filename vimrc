@@ -1,7 +1,9 @@
 if ! has('nvim')
     let init_real_path = resolve($HOME.'/.vim/vimrc')
     let $GIT_PATH = substitute(init_real_path, '/vimrc', '', '')
-    source $GIT_PATH/old_vim/packs.vim
+    if v:progname != 'vi'
+        source $GIT_PATH/old_vim/packs.vim
+    endif
     for script in split(expand($GIT_PATH.."/old_vim/*.vim"))
         if script != $GIT_PATH..'/old_vim/packs.vim'
             exec "source "..script
@@ -12,10 +14,12 @@ endif
 source $GIT_PATH/options.vim
 source $GIT_PATH/mappings.vim
 source $GIT_PATH/abbrevs.vim
-source $GIT_PATH/autocommands.vim
 source $GIT_PATH/functions.vim
 source $GIT_PATH/commands.vim
-source $GIT_PATH/packs.vim
+if v:progname != 'vi'
+    source $GIT_PATH/autocommands.vim
+    source $GIT_PATH/packs.vim
+endif
 
 filetype plugin indent on
 

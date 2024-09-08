@@ -1,5 +1,7 @@
 " General options
-set nocompatible " Vim, not Vi
+if v:progname == 'vi'
+    set compatible
+endif
 set tabpagemax=500 " I could get use out of that with my janky homemade tools
 set history=5000 " I'm not running this on 2Kb of RAM
 set hidden " Hides closed buffers instead of removing them
@@ -18,6 +20,7 @@ set wildmenu " display completion matches in a status line
 set mouse=a " Mouse support
 set wildignore+=*.pyc,node_modules
 set updatetime=300 " timeout before writing to swap file or triggering CursorHold event
+set switchbuf=usetab " Goes to open window if it exists, instead of replacing current one
 if(len(expand('%:p')) > 100)
     set noswapfile
 endif
@@ -36,11 +39,15 @@ set scrolloff=2 " How many lines between cursor and edge
 set sidescrolloff=5 " How many lines between cursor and horizontal edge
 set ruler " show the cursor position all the time
 set foldmethod=indent " Generally saner than alternatives
+set foldtext= " Allows reusing of highlights, 
+set foldignore= " Default is to ignore comments when fdm=indent, it's awful
 set nofoldenable " User is required to `zi` to enable folds
-set listchars=tab:¦\ ,trail:·,nbsp:+,lead:\ 
+if v:progname != 'vi'
+    set listchars=tab:¦\ ,trail:·,nbsp:+,lead:\ 
+endif
 set conceallevel=1
 if has('nvim')
-    setglobal signcolumn=auto:2-9
+    setglobal signcolumn=auto:2
 endif
 highlight Normal ctermbg=None
 
@@ -64,7 +71,9 @@ set smartindent " Guesses when to indent next line
 set splitbelow " New vertical splits default to being at the bottom
 set splitright " New splits default to being put on the right
 set spelllang=fr " For spell checking
-set spelloptions=camel " Supports spell checking on camelCased wordGroups
+if v:progname != 'vi'
+    set spelloptions=camel " Supports spell checking on camelCased wordGroups
+endif
 set clipboard^=unnamedplus
 set ttimeout " Key sequences never stop waiting
 set timeout " Key sequences never stop waiting
