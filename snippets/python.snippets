@@ -64,7 +64,7 @@ snippet bp
 #    Odoo
 #=============
 snippet bfield
-	fields.Boolean(string="$0")
+	fields.Boolean(string="$0", default=False)
 
 snippet cfield
 	fields.Char(string="$0")
@@ -92,3 +92,15 @@ snippet cont
 
 snippet ser
 	('${1:field}', '${2:operator}', ${3:val})
+
+snippet oc_init
+	# ${1:Desc}
+
+	if(not object.${2:field}_rc):
+		raise AbortExec
+
+	result.update({
+	})
+
+snippet search
+	search([('$1', '${2:=}', $3)])

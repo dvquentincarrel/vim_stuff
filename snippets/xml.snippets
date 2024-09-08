@@ -8,3 +8,44 @@ snippet ofield
 
 snippet obutton
 	<button string="global_labels.${1:label}" onchange="$2" class="btn_${3|validate,cancel|}" />
+
+snippet bfield
+	<field name="${1:model}" string="global_labels.${2:label}" type="boolean" />
+
+snippet label
+	<label ${1|name,string|}="global_labels.$2" class="$3" />
+
+snippet template
+	<data>
+	<!-- ${1:ws description} -->
+
+
+	<!-- Params -->
+		<group attrs="{'invisible': 1}">
+		</group>
+
+	<!-- Main -->
+	</data>
+
+snippet xpath
+	<xpath expr="//${1:expr}" position="${2|before,after,attributes,replace,inside|}">
+		$3
+	</xpath>
+
+snippet attrs
+	attrs="{'${1|invisible,readonly|}': [('${2:val}', '${3:op}', ${4:''})]}"
+
+snippet labeloption
+	<record id="${1:label xml id}" model="ir.ui.menu.ionic.label">
+		<field name="name">${2:name}</field>
+		<field name="ionic_menu_id" eval="ref('${3:scen xml id}')"/>
+		<field name="value">${4:text}</field>
+	</record>
+
+snippet paramoption
+	<record id="${1:param xml id}" model="ir.ui.menu.ionic.label">
+		<field name="name">${2:name}</field>
+		<field name="ionic_menu_id" eval="ref('${3:scen xml id}')"/>
+		<field name="value">${4:text}</field>
+		<field name="note">${5:explanation}</field>
+	</record>
