@@ -40,6 +40,6 @@ open_modules = function(width_percent, height_percent)
     end
 
     -- Start script
-    vim.fn.termopen('_fzo -a > /tmp/nv_fzo', {on_exit=on_exit, on_data=on_stdout})
+    vim.fn.termopen('export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --height 100%"; _fzo -a > /tmp/nv_fzo', {on_exit=on_exit, on_data=on_stdout})
 end
 vim.keymap.set("n", "<leader>go", function() open_modules(80, 80) end)
