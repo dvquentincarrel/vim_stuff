@@ -25,7 +25,7 @@ endif
 " Display
 syntax enable
 set number " Line numbers
-set relativenumber " Relative line numbers
+set norelativenumber " Absolute line numbers
 set showcmd " bottom-right display of current spelzl
 set laststatus=2 " Status line always displayed
 set linebreak " Only breaks long line after last word char
