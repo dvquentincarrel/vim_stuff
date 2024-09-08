@@ -1,3 +1,7 @@
+##### Fields #####
+snippet field
+	<field name="$1" string="global_labels.$2" type="$3" onchange="$4">
+
 snippet mfield
 	<field name="${1:model}_rc" string="global_labels.${2:label}" type="many2one" onchange="$3" model="$4" />
 
@@ -6,14 +10,59 @@ snippet ofield
 		<label name="id" attrs="{'invisible':1}"/>
 	</field>
 
-snippet obutton
-	<button string="global_labels.${1:label}" onchange="$2" class="btn_${3|validate,cancel|}" />
-
 snippet bfield
 	<field name="${1:model}" string="global_labels.${2:label}" type="boolean" />
 
+snippet lsfield
+	<field name="$1_sel" string="global_labels.$2" type="localSelection">
+		<option value="ok">Ok</option>
+	</field>
+
+snippet sfield
+	<field name="$1_sel" string="global_labels.$2" type="selection" model="$3" select="$4"/>
+
+##### Buttons #####
+snippet obtn
+	<button string="global_labels.${1:label}" onchange="$2" class="btn_${3|validate,cancel|}" />
+
+snippet tbtn
+	<button string="global_labels.${1:label}" type="transition" page="${2:page}"/>
+
+##### Options ####
+snippet labeloption
+	<record id="${1:label xml id}" model="ir.ui.menu.ionic.label">
+		<field name="name">${2:name}</field>
+		<field name="ionic_menu_id" eval="ref('${3:scen xml id}')"/>
+		<field name="value">${4:text}</field>
+	</record>
+
+snippet paramoption
+	<record id="${1:param xml id}" model="ir.ui.menu.ionic.label">
+		<field name="name">${2:name}</field>
+		<field name="ionic_menu_id" eval="ref('${3:scen xml id}')"/>
+		<field name="value">${4:text}</field>
+		<field name="note">${5:explanation}</field>
+	</record>
+
+##### Attrs ####
+snippet ro
+	'invisible': [('$1', '${2:=}', $3)]$0
+
+snippet invis
+	'invisible': [('$1', '${2:=}', $3)]$0
+
+snippet domain
+	domain="[('$1', '${2:=}', $3)]$0"
+
+snippet wdomain
+	'domain': [('$1', '${2:=}', $3)]$0
+
+##### Misc ####
 snippet label
 	<label ${1|name,string|}="global_labels.$2" class="$3" />
+
+snippet keyboard
+	<keyboard popup_fields="['${1:var}']" for="${1:var}" popup_position="auto-left"/>
 
 snippet template
 	<data>
@@ -31,21 +80,3 @@ snippet xpath
 	<xpath expr="//${1:expr}" position="${2|before,after,attributes,replace,inside|}">
 		$3
 	</xpath>
-
-snippet attrs
-	attrs="{'${1|invisible,readonly|}': [('${2:val}', '${3:op}', ${4:''})]}"
-
-snippet labeloption
-	<record id="${1:label xml id}" model="ir.ui.menu.ionic.label">
-		<field name="name">${2:name}</field>
-		<field name="ionic_menu_id" eval="ref('${3:scen xml id}')"/>
-		<field name="value">${4:text}</field>
-	</record>
-
-snippet paramoption
-	<record id="${1:param xml id}" model="ir.ui.menu.ionic.label">
-		<field name="name">${2:name}</field>
-		<field name="ionic_menu_id" eval="ref('${3:scen xml id}')"/>
-		<field name="value">${4:text}</field>
-		<field name="note">${5:explanation}</field>
-	</record>
