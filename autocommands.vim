@@ -1,17 +1,8 @@
-" augroup auto_fdc
-" 	autocmd!
-" 	let g:auto_fdc = 1
-" 		autocmd CursorMoved * {
-" 		# TODO: get through vim9
-" 		#	if g:auto_fdc == 1
-" 		#		var tmp_fdc = foldlevel(line('.')) + 1
-" 		#		if tmp_fdc > 12
-" 		#		#	 var tmp_fdc = 12
-" 		#		endif
-" 		#		&fdc = tmp_fdc
-" 		#	endif
-" 		}
-" augroup END
+augroup auto_open_cw
+    " Automatically opens/close quickfix list when populated/emptied
+    autocmd!
+    autocmd QuickFixCmdPost * if getqflist({'size':''})['size'] > 0 | copen | else | cclose | endif
+augroup END
 
 augroup toggle_listchars
     " If enabled, list chars are hidden during insert mode
@@ -20,24 +11,12 @@ augroup toggle_listchars
     autocmd InsertLeave * let &list = listval
 augroup END
 
-augroup tab_name
-	autocmd!
-	autocmd BufEnter * let &titlestring = ' '.expand("%:t")
-augroup END
-
 augroup mem_folds
-	" Automatically saves and load the view
+	" Automatically saves and loads the view. Skips on long path names, to
+    " circumvent filesystem limitations
 	autocmd!
     autocmd BufWrite * if len(expand('%:p')) < 100 | mkview | endif
 	autocmd BufRead * silent! loadview
-augroup END
-
-augroup ft_adapt
-	" Automatically adapts to the current filetype by
-	" settings the compiler
-	autocmd!
-	autocmd FileType * try | execute "compiler" &filetype | catch | endtry
-	"autocmd BufWritePost * Make "Un peu relou en vrai
 augroup END
 
 augroup no_chevron
