@@ -4,6 +4,15 @@ snippet #!
 snippet pdb
 	import ${1|pdb,pudb,ipdb|}; $1.${2|set_trace,post_mortem|}()
 
+snippet logging
+	logging.basicConfig(
+		level=LEVEL,
+		format=(
+			''.join(["{levelname}@", GY, "{lineno}@", BD, "{filename}@", "{msg}"])
+			.replace("@", f"{YL}:{ST}")),
+		style='{'
+	)
+
 snippet debugpy
 	import debugpy
 	if not debugpy.is_client_connected():
@@ -35,6 +44,14 @@ snippet :par
 
 snippet :rai
 	:raises ${1:name}: ${2:description}
+
+snippet doc
+	"""${1:Description}
+
+	:param ${2:name}: ${3:description}
+	:return: ${4:description}
+	:raises ${5:Name}: ${6:description}
+	"""
 
 snippet def
 	def ${1:Name}(self, ${2:Args}):
