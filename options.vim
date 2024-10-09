@@ -26,7 +26,6 @@ if(len(expand('%:p')) > 100)
 endif
 
 " Display
-syntax enable
 set number " Line numbers
 set norelativenumber " Absolute line numbers
 set showcmd " bottom-right display of current spelzl
