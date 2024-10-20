@@ -1,3 +1,7 @@
+if has('nvim')
+    finish
+endif
+
 augroup vicker
     autocmd!
     autocmd BufRead time.yaml let b:vickerPath = resolve(expand('<sfile>:p:h')) | call SetupVicker()
