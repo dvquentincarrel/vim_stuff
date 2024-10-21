@@ -1,3 +1,5 @@
+vim.b.vicker_path = vim.fn.resolve(vim.fn.expand('<sfile>:p:h'))
+
 function setup_vicker()
     -- The async stuff had to be isolated as much as possible as it
     -- Caused the operations to be split across multiple undos
@@ -43,7 +45,7 @@ function setup_vicker()
             if name == '' then name = '/' end
             lnum = close_entry(time)
             lnum = lnum or vim.fn.line('.')
-            line = string.rep(' ', vim.bo.ts)..'- '..time..' # '..name
+            line = string.rep(' ', vim.bo.sw*2)..'- '..time..' # '..name
             vim.fn.append(lnum, line)
             return lnum
         end
@@ -60,7 +62,7 @@ function setup_vicker()
         local time = time or os.date('%T')
         local function worker(categ)
             if categ == '' then categ = 'misc' end
-            line = string.rep(' ', vim.bo.ts)..categ..':'
+            line = string.rep(' ', vim.bo.sw)..categ..':'
             vim.fn.append(lnum, line)
         end
 
@@ -105,6 +107,7 @@ function setup_vicker()
     vim.keymap.set('n', '<leader>d', add_day, {buffer=0, desc="Punch new day"})
     vim.keymap.set('n', '<leader>D', add_day, {buffer=0, desc="Punch new day"})
     vim.keymap.set('n', '<leader>s', split_entry, {buffer=0, desc="Split entry (WIP)"})
+    vim.keymap.set('v', '<leader>t', ':!python '..vim.b.vicker_path..'/vicker.py<CR>', {buffer=0, silent=true, desc="Compute selected timespan"})
 end
 
 vim.api.nvim_create_augroup('Vicker', {})
