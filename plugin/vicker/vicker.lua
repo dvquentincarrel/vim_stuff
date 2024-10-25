@@ -102,12 +102,13 @@ function setup_vicker()
     end
 
     vim.keymap.set('n', '<leader>c', choose_command, {buffer=0, desc="Choose vicker command"})
-    vim.keymap.set('n', '<leader>p', add_entry, {buffer=0, desc="Punch new entry"})
-    vim.keymap.set('n', '<leader>P', add_categ, {buffer=0, desc="Punch new category"})
+    vim.keymap.set('n', 'C', choose_command, {buffer=0, desc="Choose vicker command"})
+    vim.keymap.set('n', 't', add_entry, {buffer=0, desc="Punch new entry"})
+    vim.keymap.set('n', 'T', add_categ, {buffer=0, desc="Punch new category"})
     vim.keymap.set('n', '<leader>d', add_day, {buffer=0, desc="Punch new day"})
     vim.keymap.set('n', '<leader>D', add_day, {buffer=0, desc="Punch new day"})
     vim.keymap.set('n', '<leader>s', split_entry, {buffer=0, desc="Split entry (WIP)"})
-    vim.keymap.set('v', '<leader>t', ':!python '..vim.b.vicker_path..'/vicker.py<CR>', {buffer=0, silent=true, desc="Compute selected timespan"})
+    vim.keymap.set('v', 't', ':!python '..vim.b.vicker_path..'/vicker.py<CR>', {buffer=0, silent=true, desc="Compute selected timespan"})
 end
 
 vim.api.nvim_create_augroup('Vicker', {})
