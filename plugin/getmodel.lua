@@ -10,6 +10,7 @@ opp_setup_win = function(width_percent, height_percent)
 end
 
 get_model = function(width_percent, height_percent)
+    line = vim.api.nvim_get_current_line()
     -- Sets up window
     opp_setup_win(width_percent, height_percent)
 
@@ -22,8 +23,20 @@ get_model = function(width_percent, height_percent)
         end
     end
 
+    model_re = vim.regex([[\v'(\w+\.)+\w+']])
+    start, stop = model_re:match_str(line)
+    local model_name
+    if start then
+        model_name = string.sub(line, start+1, stop)
+    end
+    command='getmodel -n'
+    if model_name then
+        command = command..[[ "']]..model_name..[['"]]
+    end
+    print(command)
+
     -- Start script
-    vim.fn.termopen('getmodel -n', {on_exit=on_exit})
+    vim.fn.termopen(command, {on_exit=on_exit})
 end
 
 vim.keymap.set("n", "<leader>gm", function() get_model(80, 80) end)
