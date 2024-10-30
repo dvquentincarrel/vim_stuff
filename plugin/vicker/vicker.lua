@@ -5,6 +5,11 @@ function setup_vicker()
     -- Caused the operations to be split across multiple undos
 
     vim.b.open_entry_regex = [=[\v^\s*- ?\d\d:\d\d:\d\d( #|$)]=]
+    vim.b.day_regex = [=[^\d\d\d\d-\d\d-\d\d *: *$]=]
+    indentation = math.min(vim.bo.sw, vim.bo.ts)
+    vim.b.categ_re_prefix = '^'..string.rep(' ', indentation * 1)
+    vim.b.categ_re_suffix = ':$'
+    vim.b.generic_categ_re = vim.b.categ_re_prefix..'.*'..vim.b.categ_re_suffix
 
     function choose_command()
         vim.ui.select({'Add entry', 'Add category', 'Add day', 'Close entry', 'Split entry'},
@@ -25,20 +30,19 @@ function setup_vicker()
         )
     end
 
+    -- Find the open line, closes it, return the line number
     function close_entry(time)
-        -- Find the open line, closes it, return the line number
         time = time or os.date('%T')
         lnum, _ = unpack(vim.fn.searchpos(vim.b.open_entry_regex))
         if lnum == 0 then return end
-        print(lnum)
         line_content = vim.api.nvim_get_current_line()
         closed_line = vim.fn.substitute(line_content, [[\d \zs#]], time..' #', '')
         vim.api.nvim_set_current_line(closed_line)
         return lnum
     end
 
+    -- Closes the open entry, creates a new one underneath. Returns lnum above added line
     function add_entry(time, name)
-        -- Closes the open entry, creates a new one underneath. Returns lnum above added line
         local time = time or os.date('%T')
         local function worker(name)
             if not name then return end
@@ -57,32 +61,42 @@ function setup_vicker()
         end
     end
 
+    -- Adds a new entry in a new category, or to an existing one
     function add_categ(time, categ, entry)
-        -- Adds a new entry in a new category
         local time = time or os.date('%T')
+
         local function worker(categ)
-            if categ == '' then categ = 'misc' end
-            line = string.rep(' ', vim.bo.sw)..categ..':'
-            vim.fn.append(lnum, line)
+            -- If the category already exists, move the new entry under it
+            if specific_lnum ~= 0 then
+                vim.cmd((lnum+1)..'move '..(specific_lnum))
+            else
+                if categ == '' then categ = 'misc' end
+                line = string.rep(' ', vim.bo.sw)..categ..':'
+                vim.fn.append(lnum, line)
+            end
         end
 
         if not categ or not entry then
             vim.ui.input({prompt='Category'}, function(categ)
+                -- Handle mid-creation cancelling
                 if not categ then return end
                 vim.ui.input({prompt='Entry'}, function(entry)
+                    -- Handle mid-creation cancelling
                     if not entry then return end
                     lnum = add_entry(time, entry)
+                    specific_lnum = find_existing_categ(categ)
                     worker(categ)
                 end)
             end)
+        -- When called through add_day 
         else
             lnum = add_entry(time, entry)
             worker(categ)
         end
     end
 
+    -- Adds new day line, new categ, new entry
     function add_day(time)
-        -- Adds new day line, new categ, new entry
         time = time or os.date('%T')
         date = os.date('%F')
         vim.ui.input({prompt='Category ('..date..')'}, function(categ)
@@ -99,6 +113,27 @@ function setup_vicker()
 
     function split_entry(time)
         time = time or os.date('%T')
+    end
+
+    -- Return the line number of the last entry of the given category for the
+    -- current day if it exists, 0 otherwise
+    function find_existing_categ(categ_name)
+        -- Sets cursor to current day
+        vim.fn.cursor(unpack(vim.fn.searchpos(vim.b.day_regex, 'b')))
+
+        specific_categ_re = vim.b.categ_re_prefix..categ_name..vim.b.categ_re_suffix
+        spe_categ_lnum, _ = unpack(vim.fn.searchpos(specific_categ_re, 'W'))
+        if spe_categ_lnum == 0 then
+            return 0
+        end
+        vim.fn.cursor(spe_categ_lnum, _)
+
+        gen_categ_lnum, _ = unpack(vim.fn.searchpos(vim.b.generic_categ_re, 'W'))
+        if gen_categ_lnum == 0 then
+            return vim.fn.line('$')
+        end
+
+        return gen_categ_lnum-1
     end
 
     vim.keymap.set('n', '<leader>c', choose_command, {buffer=0, desc="Choose vicker command"})
