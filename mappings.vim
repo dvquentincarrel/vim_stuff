@@ -19,8 +19,8 @@ else
 endif
 vnoremap <tab> >gv
 vnoremap <S-tab> <gv
-xnoremap s <cmd>call VisSurround("inline")<cr>
-xnoremap S <cmd>call VisSurround("around")<cr>
+"xnoremap s <cmd>call VisSurround("inline")<cr>
+"xnoremap S <cmd>call VisSurround("around")<cr>
 vnoremap < <gv
 vnoremap > >gv
 

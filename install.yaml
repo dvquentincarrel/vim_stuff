@@ -124,3 +124,8 @@ installation:
     dir: pack/indentline/opt
     files:
     - https://github.com/lukas-reineke/indent-blankline.nvim.git
+  mini:
+    condition: 'which nvim &>/dev/null'
+    dir: pack/mini/opt
+    files:
+    - https://github.com/echasnovski/mini.surround.git
