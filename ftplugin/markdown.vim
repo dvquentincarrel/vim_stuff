@@ -11,7 +11,6 @@ function! s:GetMDFold(lnum)
     endif
 endfunction
 
-setlocal foldexpr=s:GetMDFold(v:lnum)
 setlocal foldmethod=expr
 setlocal tabstop=2
 setlocal shiftwidth=2
