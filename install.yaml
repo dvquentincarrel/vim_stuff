@@ -1,0 +1,126 @@
+opt_dependencies:
+  - vim
+  - nvim
+
+installation:
+# Common
+  fzf_1:
+    dir: plugin
+    files:
+    - 'https://raw.githubusercontent.com/junegunn/fzf/master/plugin/fzf.vim'
+  fzf_2:
+    dir: pack/fzf/opt
+    files:
+    - 'https://github.com/junegunn/fzf.vim.git'
+  narrow:
+    dir: pack/narrow/opt
+    files:
+    - https://github.com/chrisbra/NrrwRgn.git
+  nerdtree:
+    dir: pack/nerdtree/opt
+    files:
+    - https://github.com/preservim/nerdtree.git
+  signify:
+    dir: pack/signify/opt
+    files:
+    - https://github.com/mhinz/vim-signify.git
+  smoothie:
+    dir: pack/smoothie/opt
+    files:
+    - https://github.com/psliwka/vim-smoothie.git
+  tagbar:
+    dir: pack/tagbar/opt
+    files:
+    - https://github.com/preservim/tagbar.git
+  tpope:
+    dir: pack/tpope/opt
+    files:
+    - https://github.com/kristijanhusak/vim-dadbod-ui.git
+    - https://github.com/tpope/vim-dadbod.git
+    - https://github.com/tpope/vim-fugitive.git
+  undotree:
+    dir: pack/undotree/opt
+    files:
+    - https://github.com/mbbill/undotree.git
+  xmlruntime:
+    dir: pack/xmlruntime/opt
+    files:
+    - https://github.com/chrisbra/vim-xml-runtime.git
+
+# Vim-specific
+  indentline:
+    condition: 'which vim &>/dev/null && ! which nvim &>/dev/null'
+    dir: pack/indentline/opt
+    files:
+    - https://github.com/Yggdroot/indentLine.git
+  airline:
+    condition: 'which vim &>/dev/null && ! which nvim &>/dev/null'
+    dir: pack/airline/opt
+    files:
+    - https://github.com/vim-airline/vim-airline.git
+  colors:
+    condition: 'which vim &>/dev/null && ! which nvim &>/dev/null'
+    dir: pack/colors/opt
+    files:
+    - https://github.com/morhetz/gruvbox.git
+
+# Nvim-specific
+  lsp:
+    condition: 'which nvim &>/dev/null'
+    dir: pack/lsp/opt
+    files:
+    - https://github.com/VonHeikemen/lsp-zero.nvim.git
+    - https://github.com/hrsh7th/cmp-buffer.git
+    - https://github.com/hrsh7th/cmp-nvim-lsp.git
+    - https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git
+    - https://github.com/hrsh7th/nvim-cmp.git
+    - https://github.com/neovim/nvim-lspconfig.git
+    - https://github.com/williamboman/mason-lspconfig.nvim.git
+    - https://github.com/williamboman/mason.nvim.git
+    - https://github.com/SmiteshP/nvim-navic.git
+  treesitter:
+    condition: 'which nvim &>/dev/null'
+    dir: pack/treesitter/opt
+    files:
+    - https://github.com/nvim-treesitter/nvim-treesitter.git
+    - https://github.com/nvim-treesitter/nvim-treesitter-refactor.git
+    - https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
+  nvim_gruvbox:
+    condition: 'which nvim &>/dev/null'
+    dir: pack/colors/opt
+    files:
+    - https://github.com/ellisonleao/gruvbox.nvim.git
+  dap:
+    condition: 'which nvim &>/dev/null'
+    dir: pack/dap/opt
+    files:
+    - https://github.com/mfussenegger/nvim-dap.git
+    - https://github.com/rcarriga/nvim-dap-ui.git
+    - https://github.com/theHamsta/nvim-dap-virtual-text.git
+    - https://github.com/nvim-neotest/nvim-nio.git
+    - https://github.com/mfussenegger/nvim-dap-python.git
+  fzflua:
+    condition: 'which nvim &>/dev/null'
+    dir: pack/fzf/opt
+    files:
+    - https://github.com/ibhagwan/fzf-lua.git
+  devicons:
+    condition: 'which nvim &>/dev/null'
+    dir: pack/devicons/opt
+    files:
+    - https://github.com/nvim-tree/nvim-web-devicons.git
+  dressing:
+    condition: 'which nvim &>/dev/null'
+    dir: pack/dressing/opt
+    files:
+    - https://github.com/stevearc/dressing.nvim.git
+  luasnip:
+    condition: 'which nvim &>/dev/null'
+    dir: pack/luasnip/opt
+    files:
+    - https://github.com/L3MON4D3/LuaSnip.git
+  indentline:
+    condition: 'which nvim &>/dev/null'
+    dir: pack/indentline/opt
+    files:
+    - https://github.com/lukas-reineke/indent-blankline.nvim.git
