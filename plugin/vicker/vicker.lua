@@ -68,7 +68,10 @@ function setup_vicker()
         local function worker(categ)
             -- If the category already exists, move the new entry under it
             if specific_lnum ~= 0 then
+                local old_fe = vim.wo.foldenable
+                vim.wo.foldenable = false
                 vim.cmd((lnum+1)..'move '..(specific_lnum))
+                vim.wo.foldenable = old_fe
             else
                 if categ == '' then categ = 'misc' end
                 line = string.rep(' ', vim.bo.sw)..categ..':'
