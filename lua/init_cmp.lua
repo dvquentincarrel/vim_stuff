@@ -3,6 +3,7 @@ local cmp_packs = {
     'cmp-nvim-lsp',
     'cmp-nvim-lsp-signature-help',
     'nvim-cmp',
+    'cmp_luasnip',
 }
 for _, pack_name in ipairs(cmp_packs) do
     vim.cmd.packadd(pack_name)
