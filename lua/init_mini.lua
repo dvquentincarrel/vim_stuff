@@ -1,4 +1,5 @@
 vim.cmd.packadd('mini.surround')
+vim.cmd.packadd('mini.indentscope')
 require('mini.surround').setup({
     custom_surroundings = {
         ['d'] = {
@@ -12,3 +13,11 @@ require('mini.surround').setup({
         }
     }
 })
+require('mini.indentscope').setup{
+    draw={
+        animation=require('mini.indentscope').gen_animation.quadratic{
+            easing='in-out',
+            duration=40,
+        }
+    }
+}

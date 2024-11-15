@@ -1,6 +1,9 @@
 opt_dependencies:
   - vim
   - nvim
+post:
+  - nvim +'helptags ALL | q'
+  - vim +'helptags ALL | q'
 
 installation:
 # Common
@@ -120,13 +123,9 @@ installation:
     dir: pack/luasnip/opt
     files:
     - https://github.com/L3MON4D3/LuaSnip.git
-  indentline:
-    condition: 'which nvim &>/dev/null'
-    dir: pack/indentline/opt
-    files:
-    - https://github.com/lukas-reineke/indent-blankline.nvim.git
   mini:
     condition: 'which nvim &>/dev/null'
     dir: pack/mini/opt
     files:
     - https://github.com/echasnovski/mini.surround.git
+    - https://github.com/echasnovski/mini.indentscope.git
