@@ -1,6 +1,6 @@
 ##### Fields #####
 snippet field
-	<field name="$1" string="global_labels.$2" type="$3" onchange="$4">
+	<field name="$1" string="global_labels.$2" type="$3" onchange="$4"/>
 
 snippet mfield
 	<field name="${1:model}_rc" string="global_labels.${2:label}" type="many2one" onchange="$3" model="$4" />
@@ -45,8 +45,11 @@ snippet paramoption
 	</record>
 
 ##### Attrs ####
+snippet attrs
+	attrs="{$0}"
+
 snippet ro
-	'invisible': [('$1', '${2:=}', $3)]$0
+	'readonly': [('$1', '${2:=}', $3)]$0
 
 snippet invis
 	'invisible': [('$1', '${2:=}', $3)]$0

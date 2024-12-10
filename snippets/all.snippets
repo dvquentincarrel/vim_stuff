@@ -6,3 +6,9 @@ snippet color
 
 snippet tcolor
 	\x1b[${1:3}8;2;${2:RED};${3:GREEN};${4:BLUE}m
+
+snippet olf
+	('$1', '${2|=,!=,<=,<,>,>=,=?,=like,=ilike,like,not like,ilike,not ilike,in,not in,child_of,parent_of,any,not any,~,!~,s,e|}', $3)
+
+snippet domain
+	domain="[$0]"
