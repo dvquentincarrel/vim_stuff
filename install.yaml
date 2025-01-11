@@ -52,24 +52,24 @@ installation:
 
 # Vim-specific
   indentline:
-    condition: 'which vim &>/dev/null && ! which nvim &>/dev/null'
+    condition: 'command -v vim &>/dev/null && ! which nvim &>/dev/null'
     dir: pack/indentline/opt
     files:
     - https://github.com/Yggdroot/indentLine.git
   airline:
-    condition: 'which vim &>/dev/null && ! which nvim &>/dev/null'
+    condition: 'command -v vim &>/dev/null && ! which nvim &>/dev/null'
     dir: pack/airline/opt
     files:
     - https://github.com/vim-airline/vim-airline.git
   colors:
-    condition: 'which vim &>/dev/null && ! which nvim &>/dev/null'
+    condition: 'command -v vim &>/dev/null && ! which nvim &>/dev/null'
     dir: pack/colors/opt
     files:
     - https://github.com/morhetz/gruvbox.git
 
 # Nvim-specific
   lsp:
-    condition: 'which nvim &>/dev/null'
+    condition: 'command -v nvim &>/dev/null'
     dir: pack/lsp/opt
     files:
     - https://github.com/VonHeikemen/lsp-zero.nvim.git
@@ -83,19 +83,19 @@ installation:
     - https://github.com/williamboman/mason.nvim.git
     - https://github.com/SmiteshP/nvim-navic.git
   treesitter:
-    condition: 'which nvim &>/dev/null'
+    condition: 'command -v nvim &>/dev/null'
     dir: pack/treesitter/opt
     files:
     - https://github.com/nvim-treesitter/nvim-treesitter.git
     - https://github.com/nvim-treesitter/nvim-treesitter-refactor.git
     - https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
   nvim_gruvbox:
-    condition: 'which nvim &>/dev/null'
+    condition: 'command -v nvim &>/dev/null'
     dir: pack/colors/opt
     files:
     - https://github.com/ellisonleao/gruvbox.nvim.git
   dap:
-    condition: 'which nvim &>/dev/null'
+    condition: 'command -v nvim &>/dev/null'
     dir: pack/dap/opt
     files:
     - https://github.com/mfussenegger/nvim-dap.git
@@ -104,27 +104,27 @@ installation:
     - https://github.com/nvim-neotest/nvim-nio.git
     - https://github.com/mfussenegger/nvim-dap-python.git
   fzflua:
-    condition: 'which nvim &>/dev/null'
+    condition: 'command -v nvim &>/dev/null'
     dir: pack/fzf/opt
     files:
     - https://github.com/ibhagwan/fzf-lua.git
   devicons:
-    condition: 'which nvim &>/dev/null'
+    condition: 'command -v nvim &>/dev/null'
     dir: pack/devicons/opt
     files:
     - https://github.com/nvim-tree/nvim-web-devicons.git
   dressing:
-    condition: 'which nvim &>/dev/null'
+    condition: 'command -v nvim &>/dev/null'
     dir: pack/dressing/opt
     files:
     - https://github.com/stevearc/dressing.nvim.git
   luasnip:
-    condition: 'which nvim &>/dev/null'
+    condition: 'command -v nvim &>/dev/null'
     dir: pack/luasnip/opt
     files:
     - https://github.com/L3MON4D3/LuaSnip.git
   mini:
-    condition: 'which nvim &>/dev/null'
+    condition: 'command -v nvim &>/dev/null'
     dir: pack/mini/opt
     files:
     - https://github.com/echasnovski/mini.surround.git
