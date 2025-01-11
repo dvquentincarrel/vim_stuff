@@ -129,8 +129,8 @@ installation:
     files:
     - https://github.com/echasnovski/mini.surround.git
     - https://github.com/echasnovski/mini.indentscope.git
-  diffview:
-    condition: 'which nvim &>/dev/null'
-    dir: pack/diffview/opt
+  lualine:
+    conditoin: 'command -v nvim &>/dev/null'
+    dir: pack/lualine/opt
     files:
-    - https://github.com/sindrets/diffview.nvim.git
+    - https://github.com/nvim-lualine/lualine.nvim.git
