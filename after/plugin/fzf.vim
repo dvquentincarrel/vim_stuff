@@ -21,4 +21,5 @@ if exists(':FzfLua')
     nnoremap <leader>fg :lua require('fzf-lua').git_files({cwd=vim.loop.cwd()})<CR>
     nnoremap <leader>fd :FzfLua dap_commands<CR>
     nnoremap <leader>fwt :FzfLua tags_grep_cword<CR>
+    nnoremap <leader>ft :FzfLua lsp_document_symbols<CR>
 endif
