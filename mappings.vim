@@ -30,16 +30,20 @@ nnoremap ]b <cmd>bnext<cr>
 nnoremap [b <cmd>bprevious<cr>
 nnoremap ]t <cmd>1tag<CR>
 nnoremap [t <cmd>1pop<CR>
+nnoremap g<C-]> :tj <C-r><C-w><CR>
 nnoremap <F14> <cmd>execute b:formatter<CR>
 nnoremap <F5> <cmd>Make<cr>
 nnoremap <F17> <cmd>execute b:altmakeprg<cr>
 nnoremap [q <cmd>cp<Cr>
 nnoremap ]q <cmd>cn<Cr>
+nnoremap [C <cmd>call search('\v^[<>=]{7} ?', 'b')<CR>
+nnoremap ]C <cmd>call search('\v^[<>=]{7} ?')<CR>
 nnoremap <C-Down> <c-w>2-
 nnoremap <C-Up> <c-w>2+
 nnoremap <C-left> <c-w>4<
 nnoremap <C-right> <c-w>4>
 nnoremap <bs> <cmd>set hls!<cr>
+nnoremap <leader><bs> <cmd>DiagToggle<cr>
 nnoremap <C-w>o <cmd>tabedit %<cr>
 nnoremap <leader>r <cmd>set rnu!<cr>
 nnoremap gf <cmd>e <cfile><CR>
