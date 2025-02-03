@@ -15,36 +15,29 @@ dapui.setup()
 dapui.setup({
     layouts= {
         {
-            elements = {{
-                id = "breakpoints",
-                size = 0.10
-            },
+            elements = {
                 {
-                    id = "stacks",
-                    size = 0.90
-                }},
-            position = "left",
-            size = 40
-        },
-        {
-            elements = {{
-                id = "watches",
-                size = 0.50
-            }, {
                     id = "scopes",
-                    size = 0.50
-                }},
-            position = "right",
-            size = 40
+                    size = 0.35
+                },{
+                    id = "watches",
+                    size = 0.20
+                },{
+                    id = "stack",
+                    size = 0.35
+                },{
+                    id = "breakpoints",
+                    size = 0.10
+                }
+            },
+            position = "left",
+            size = 55
         },
         {
-            elements = {{
-                id = "repl",
-                size = 1.0
-            }},
+            elements = {{ id = "repl", size = 1 }},
             position = "bottom",
             size = 10
-        }
+        },
     }
 })
 
