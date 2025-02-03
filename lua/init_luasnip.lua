@@ -1,6 +1,8 @@
 vim.cmd.packadd('LuaSnip')
 local ls = require("luasnip")
 
+ls.config.setup({cut_selection_keys="<C-k>"})
+
 vim.keymap.set(
     {"i", "s"}, "<C-K>",
     function()
