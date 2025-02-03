@@ -5,7 +5,7 @@ snippet pp
 	from pprint import pprint as print
 
 snippet pdb
-	import ${1|pdb,pudb,ipdb|}; $1.${2|set_trace,post_mortem|}()
+	import ${1|ipdb,pudb,pdb|}; $1.${2|set_trace,post_mortem|}()
 
 snippet logging
 	logging.basicConfig(
@@ -35,17 +35,23 @@ snippet argparse
 
 snippet try
 	try:
-		${1:# ...}
+		${1:${TM_SELECTED_TEXT:# ...}}
 	except ${2:Exception} as ${3:e}:
 		${4:# ...}
 
-snippet :ret
+snippet pm
+	try:
+		$TM_SELECTED_TEXT
+	except ${2:Exception} as ${3:e}:
+		import ipdb; ipdb.post_mortem()
+
+snippet ret
 	:return: ${1:description}
 
-snippet :par
+snippet par
 	:param ${1:name}: ${2:description}
 
-snippet :rai
+snippet rai
 	:raises ${1:name}: ${2:description}
 
 snippet doc
