@@ -21,9 +21,9 @@ cmp.setup({
             border = 'rounded',
         }},
     sources = {
+        { name = 'luasnip', priority=5 },
         { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lsp' },
-        { name = 'luasnip' },
         { name = 'buffer',
           option = {
               get_bufnrs = function()
