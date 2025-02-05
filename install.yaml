@@ -129,3 +129,8 @@ installation:
     files:
     - https://github.com/echasnovski/mini.surround.git
     - https://github.com/echasnovski/mini.indentscope.git
+  diffview:
+    condition: 'which nvim &>/dev/null'
+    dir: pack/diffview/opt
+    files:
+    - https://github.com/sindrets/diffview.nvim.git

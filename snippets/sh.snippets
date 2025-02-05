@@ -1,2 +1,16 @@
 snippet #!
-	#!/bin/env ${1|bash,sh|}
+	#!/bin/${1|bash,sh|}
+
+snippet getopts
+	while getopts "${1:opts}:" opt; do
+		case $$opt in
+			${2:opt})  ${3:example_flag_with_value="$OPTARG"};;
+			h)  echo "$$helpmsg"
+				exit 0;;
+			c)  color=always;;
+			*)  echo -e"invalid option '$$opt'\n"
+				echo "$$helpmsg"
+				exit 1;;
+		esac
+	done
+	shift $$((OPTIND -1))

@@ -3,8 +3,6 @@ let mapleader=" "
 inoremap <C-U> <C-G>u<C-U>
 inoremap <Enter> <C-G>u<Enter>
 inoremap <C-R> <C-G>u<C-R>
-inoremap <A-Up> <esc>m':m-2<CR>``a
-inoremap <A-Down> <esc>m':m+1<CR>``a
 inoremap jj <esc>
 inoremap jk <esc>
 " overwrites 'insert char below cursor'

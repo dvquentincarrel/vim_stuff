@@ -13,7 +13,6 @@ endif
 
 source $GIT_PATH/options.vim
 source $GIT_PATH/mappings.vim
-source $GIT_PATH/abbrevs.vim
 source $GIT_PATH/functions.vim
 source $GIT_PATH/commands.vim
 if v:progname != 'vi'

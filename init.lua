@@ -8,17 +8,30 @@ vim.g.editorconfig = false
 
 vim.g.mapleader = ' '
 
-local init_files = {
-    'init_misc_packs',
-    'init_fzflua',
-    'init_treesitter',
-    'init_cmp',
-    'init_lsp',
-    'init_dap',
-    'init_luasnip',
-    'init_lualine',
-    'init_mini',
-}
+require ('autocommands')
+local init_files
+if vim.g.vscode then
+    init_files = {
+        'init_misc_packs',
+        'init_mini',
+    }
+else
+    init_files = {
+        'init_misc_packs',
+        'init_fzflua',
+        'init_treesitter',
+        'init_cmp',
+        'init_lsp',
+        'init_dap',
+        'init_luasnip',
+        'init_lualine',
+        'init_mini',
+    }
+    if vim.g.neovide then
+        table.insert(init_files, 'init_neovide')
+    end
+end
+
 for _, file_name in ipairs(init_files) do
     require(file_name)
 end
