@@ -12,11 +12,13 @@ require ('autocommands')
 local init_files
 if vim.g.vscode then
     init_files = {
+        'init_gruvbox',
         'init_misc_packs',
         'init_mini',
     }
 else
     init_files = {
+        'init_gruvbox',
         'init_misc_packs',
         'init_fzflua',
         'init_treesitter',

@@ -1,5 +1,4 @@
 local mis_packs = {
-    'gruvbox.nvim',
     'nvim-web-devicons',
     'dressing.nvim',
     'diffview.nvim',
