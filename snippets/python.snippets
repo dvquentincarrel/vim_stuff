@@ -43,7 +43,7 @@ snippet pm
 	try:
 		$TM_SELECTED_TEXT
 	except ${2:Exception} as ${3:e}:
-		import ipdb; ipdb.post_mortem()
+		import ipdb; ipdb.${4|post_mortem,set_trace|}()
 
 snippet ret
 	:return: ${1:description}
