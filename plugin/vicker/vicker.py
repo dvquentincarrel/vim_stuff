@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import sys
 import re
+import subprocess
 from datetime import timedelta
 from typing import Tuple
 
@@ -32,9 +33,18 @@ def compute_line(line: str, matches: list) -> Tuple[str, int]:
     line_str = f'{matches[0]} # [{secs_to_str(total)}] {matches[4]}\n'
     return (line_str, total)
 
+def copy_hours_min(seconds: int) -> None:
+    """Puts a HH:MM approximation in the clipboard"""
+    hours, seconds = divmod(seconds, 3600)
+    minutes, seconds = divmod(seconds, 60)
+    minutes += round(seconds / 60)
+    text = f"{hours:02}:{minutes:02}"
+    subprocess.run('wl-copy', input=text, encoding='utf-8')
+
 total = subtotal = 0
 for input_line in sys.stdin:
     line, subtotal = compute_line(input_line, TIME_REGEX.findall(input_line))
     total += subtotal
     print(line, end='')
 print(f'    # Total: {secs_to_str(total)}')
+copy_hours_min(total)
