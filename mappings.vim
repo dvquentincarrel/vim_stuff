@@ -5,6 +5,10 @@ inoremap <Enter> <C-G>u<Enter>
 inoremap <C-R> <C-G>u<C-R>
 inoremap jj <esc>
 inoremap jk <esc>
+inoremap <expr> <C-d>d systemlist('date +%F')[0]
+inoremap <expr> <C-d>D systemlist('date -Iseconds')[0]
+inoremap <expr> <C-d>t systemlist('date +%T')[0]
+inoremap <expr> <C-d>T systemlist('date +%T+%Z')[0]
 " overwrites 'insert char below cursor'
 noremap! <C-e> <End>
 " overwrites 'insert again'
