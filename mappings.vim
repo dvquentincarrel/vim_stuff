@@ -54,7 +54,7 @@ nmap <leader>gf <C-w>gf
 nmap <leader>gF <C-w>gF
 nnoremap <leader>/ <cmd>let @/='\<'..expand('<cword>')..'\>'<CR><cmd>call histadd('search', @/)<CR><cmd>set hls<CR>
 nnoremap <leader>? <cmd>let @/=expand('<cWORD>')<CR><cmd>call histadd('search', @/)<CR><cmd>set hls<CR>
-nnoremap <leader>c "+c
+nnoremap <expr> <leader>C system(['code', '--goto', expand('%:p')..':'..getcurpos()[1]..':'..getcurpos()[2]])
 nnoremap <expr> c v:register =~ '[\*+]' ? '""c' : 'c'
 nnoremap <expr> C v:register =~ '[\*+]' ? '""C' : 'C'
 nnoremap <expr> s v:register =~ '[\*+]' ? '""s' : 's'
