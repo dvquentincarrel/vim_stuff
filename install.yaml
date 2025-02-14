@@ -1,6 +1,7 @@
 opt_dependencies:
   - vim
   - nvim
+  - npm
 post:
   - nvim +'helptags ALL | q'
   - vim +'helptags ALL | q'
