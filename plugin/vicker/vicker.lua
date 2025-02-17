@@ -140,7 +140,6 @@ function setup_vicker()
     end
 
     vim.keymap.set('n', '<leader>c', choose_command, {buffer=0, desc="Choose vicker command"})
-    vim.keymap.set('n', 'C', choose_command, {buffer=0, desc="Choose vicker command"})
     vim.keymap.set('n', 't', add_entry, {buffer=0, desc="Punch new entry"})
     vim.keymap.set('n', 'T', add_categ, {buffer=0, desc="Punch new category"})
     vim.keymap.set('n', '<leader>d', add_day, {buffer=0, desc="Punch new day"})
