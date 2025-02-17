@@ -11,7 +11,6 @@ end
 
 dap = require("dap")
 dapui = require("dapui")
-dapui.setup()
 dapui.setup({
     layouts= {
         {
