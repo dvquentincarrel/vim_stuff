@@ -22,7 +22,7 @@ dapui.setup({
                     id = "watches",
                     size = 0.20
                 },{
-                    id = "stack",
+                    id = "stacks",
                     size = 0.35
                 },{
                     id = "breakpoints",
@@ -63,7 +63,25 @@ vim.keymap.set('n',
 vim.keymap.set('n',
     '<Leader>db',
     function() dap.toggle_breakpoint() end,
-    {desc = "DAP step toggle breakpoints"}
+    {desc = "DAP toggle breakpoints"}
+)
+vim.keymap.set('n',
+    '<Leader>dB',
+    function()
+        vim.ui.input({prompt="Evaluated condition"}, function(input)
+            if input == "" then
+                input = nil
+            end
+                vim.ui.input({prompt="Hit number"}, function(sub_input)
+                    if sub_input == "" then
+                        sub_input = nil
+                    end
+                    dap.toggle_breakpoint(input, sub_input)
+                end)
+            end
+        )
+    end,
+    {desc = "DAP toggle breakpoints with args"}
 )
 vim.keymap.set('n',
     '<Leader>dr',
