@@ -15,6 +15,17 @@ end
 
 
 local lsp_zero = require('lsp-zero')
+lsp_zero.extend_lspconfig(
+    {
+        capabilities = {
+            workspace = {
+                didChangeWatchedFiles = {
+                    dynamicRegistration = true
+                }
+            }
+        }
+    }
+)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
