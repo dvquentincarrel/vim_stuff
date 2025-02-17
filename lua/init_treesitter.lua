@@ -11,9 +11,6 @@ function disable_cond(lang, buf) -- Disable treesitter for files larger than 15k
     return vim.api.nvim_buf_line_count(buf) >= 15000
 end
 
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.wo.foldmethod = 'expr'
-
 require 'nvim-treesitter.configs'.setup {
     incremental_selection = {
         enable = true,
@@ -53,3 +50,16 @@ require 'nvim-treesitter.configs'.setup {
         },
     },
 }
+
+vim.api.nvim_create_autocmd('BufEnter', {
+    desc="Use treesitter folding if a parser is known for the language",
+    group="NvimTreesitter",
+    pattern={"*"},
+    callback = function(event)
+        ok, msg = pcall(vim.treesitter.get_parser)
+        if ok then
+            vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+            vim.wo.foldmethod = 'expr'
+        end
+    end,
+})
