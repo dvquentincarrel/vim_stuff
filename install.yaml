@@ -69,6 +69,11 @@ installation:
     - https://github.com/morhetz/gruvbox.git
 
 # Nvim-specific
+  init:
+    condition: 'command -v nvim &>/dev/null'
+    dir: $HOME/.config/nvim
+    files:
+    - init.lua
   lsp:
     condition: 'command -v nvim &>/dev/null'
     dir: pack/lsp/opt
