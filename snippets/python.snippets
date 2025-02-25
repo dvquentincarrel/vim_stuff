@@ -86,6 +86,10 @@ snippet class
 snippet bp
 	$0breakpoint($1)
 
+snippet open
+	with open('${1:file.txt}', '${2|r,w,a,x,rb,wb,ab|}') as file:
+		$0
+
 #=============
 #    Odoo
 #=============
