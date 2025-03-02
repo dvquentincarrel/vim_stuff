@@ -28,6 +28,7 @@ else
         'init_luasnip',
         'init_lualine',
         'init_mini',
+        'init_outline',
     }
     if vim.g.neovide then
         table.insert(init_files, 'init_neovide')

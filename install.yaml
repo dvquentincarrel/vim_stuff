@@ -136,7 +136,12 @@ installation:
     - https://github.com/echasnovski/mini.surround.git
     - https://github.com/echasnovski/mini.indentscope.git
   lualine:
-    conditoin: 'command -v nvim &>/dev/null'
+    condition: 'command -v nvim &>/dev/null'
     dir: pack/lualine/opt
     files:
     - https://github.com/nvim-lualine/lualine.nvim.git
+  outline:
+    condition: 'command -v nvim &>/dev/null'
+    dir: pack/outline/opt
+    files:
+    - https://github.com/hedyhli/outline.nvim.git
