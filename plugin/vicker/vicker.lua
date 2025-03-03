@@ -115,8 +115,67 @@ function setup_vicker()
         end)
     end
 
+    function anchor_to_sec(anchor)
+        hour, min, sec = unpack(vim.fn.split(anchor, ':'))
+        hour = tonumber(hour)
+        min = tonumber(min)
+        sec = tonumber(sec)
+        return sec + 60*min + 3600*hour
+    end
+
+    function sec_to_anchor(sec)
+        local hour = math.floor(sec / 3600)
+        sec = sec - 3600*hour
+        local min = math.floor(sec / 60)
+        sec = sec - 60*min
+        return string.format("%02d:%02d:%02d", hour, min, sec)
+    end
+
     function split_entry(time)
-        time = time or os.date('%T')
+        local start_lnum = vim.fn.line('.')
+        local post_anchor = string.match(
+            vim.fn.getline(start_lnum),
+            [=[- (%d%d:%d%d:%d%d)]=]
+        )
+        if not post_anchor then
+            error('No starting time found for line "' .. vim.fn.getline('.') .. '"')
+        end
+
+        -- Search matching line, starts from the current day
+        vim.fn.cursor('$', 0)
+        vim.fn.search(vim.b.day_regex, 'b')
+        vim.fn.search('- \\d\\d:\\d\\d:\\d\\d ' .. post_anchor)
+        local end_lnum = vim.fn.line('.')
+
+        re = [=[- (%d%d:%d%d:%d%d) ]=] .. post_anchor
+        local pre_anchor = string.match(
+            vim.fn.getline(end_lnum),
+            [=[- (%d%d:%d%d:%d%d) ]=] .. post_anchor
+        )
+        if not pre_anchor then
+            error('No starting time found for ending time "' .. post_anchor .. '"')
+        end
+
+        pre_sec = anchor_to_sec(pre_anchor)
+        post_sec = anchor_to_sec(post_anchor)
+        vim.ui.input({prompt=string.format('Minutes before post anchor, between "%s" and "%s"', pre_anchor, post_anchor)}, function(entry)
+            if not entry then return end
+            -- TODO: parse time in pre_anchor and post_anchor, modify them, add new entry above line from which function was called
+            entry_sec = tonumber(entry*60)
+            spliced_sec = post_sec - entry_sec
+            spliced_anchor = sec_to_anchor(spliced_sec)
+            new_line = string.format('    - %s %s # /', spliced_anchor, post_anchor)
+            -- Replaces old occurences
+            vim.cmd.substitute({
+                range={end_lnum},
+                args={string.format('/%s/%s/', post_anchor, spliced_anchor)}
+            })
+            --vim.cmd.substitute({
+            --    range={start_lnum},
+            --    args={string.format('/%s/%s/', post_anchor, spliced_anchor)}
+            --})
+            vim.fn.append(start_lnum-1, new_line)
+        end)
     end
 
     -- Return the line number of the last entry of the given category for the
