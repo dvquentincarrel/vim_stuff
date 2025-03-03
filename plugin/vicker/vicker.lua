@@ -91,9 +91,10 @@ function setup_vicker()
                     worker(categ)
                 end)
             end)
-        -- When called through add_day 
+        -- When called through add_day
         else
             lnum = add_entry(time, entry)
+            specific_lnum = 0
             worker(categ)
         end
     end
