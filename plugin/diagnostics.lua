@@ -6,12 +6,8 @@ vim.api.nvim_create_user_command('DiagInspect', vim.diagnostic.open_float, {})
 vim.api.nvim_create_user_command(
     'DiagToggle',
     function()
-        if vim.diagnostic.is_disabled() then
-            vim.diagnostic.enable()
-        else
-            vim.diagnostic.disable()
-        end
-    end, 
+        vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+    end,
     {}
 )
 
