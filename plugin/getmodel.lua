@@ -10,6 +10,7 @@ opp_setup_win = function(width_percent, height_percent)
 end
 
 get_model = function(width_percent, height_percent)
+    OUTPUT_FILE='/tmp/erpmap.qf'
     line = vim.api.nvim_get_current_line()
     -- Sets up window
     opp_setup_win(width_percent, height_percent)
@@ -18,7 +19,7 @@ get_model = function(width_percent, height_percent)
     on_exit = function(job_id, exit_code, type)
         vim.api.nvim_win_close(0, false)
         if exit_code == 0 then
-            vim.cmd.cgetfile('/tmp/files.omod')
+            vim.cmd.cgetfile(OUTPUT_FILE)
             vim.cmd.cwindow()
         end
     end
@@ -29,13 +30,14 @@ get_model = function(width_percent, height_percent)
     if start then
         model_name = string.sub(line, start+1, stop)
     end
-    command='getmodel -n'
+    command='omap --output-only'
     if model_name then
         command = command..[[ "']]..model_name..[['"]]
     end
     print(command)
 
     -- Start script
+    vim.fn.delete(OUTPUT_FILE)
     vim.fn.termopen(command, {on_exit=on_exit})
 end
 
