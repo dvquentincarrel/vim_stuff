@@ -145,3 +145,8 @@ installation:
     dir: pack/outline/opt
     files:
     - https://github.com/hedyhli/outline.nvim.git
+  rainbow-delims:
+    condition: 'command -v nvim &>/dev/null'
+    dir: pack/rainbow_delims/start
+    files:
+    - https://github.com/HiPhish/rainbow-delimiters.nvim.git
