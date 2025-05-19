@@ -104,9 +104,18 @@ snippet open
 	with open('${1:file.txt}', '${2|r,w,a,x,rb,wb,ab|}') as file:
 		$0
 
+snippet popen_shell
+	with subprocess.Popen('$1', shell=True, stdout=subprocess.PIPE${2:, stderr=subprocess.PIPE}) as process:
+		${4:do_something}(process.stdout)
+
+snippet popen_raw
+	with subprocess.Popen([$1], stdout=subprocess.PIPE${2:, stderr=subprocess.PIPE}) as process:
+		${4:do_something}(process.stdout)
+
 #=============
 #    Odoo
 #=============
+# === Fields
 snippet bfield
 	fields.Boolean(string="$0", default=False)
 
@@ -119,14 +128,27 @@ snippet ifield
 snippet ffield
 	fields.Float(string="$1", digits=dp.get_precision('$2'))
 
-snippet mfield
+snippet m2ofield
 	fields.Many2one('${1:Comodel name}', string="$2", ondelete='${3|set null,cascade,restrict,set default,no action|}')
 
-snippet mmfield
+snippet m2mfield
 	fields.Many2many('${1:Comodel name}', relation='${2:Table name (opt)}', string="${3:Field name}")
 
-snippet ofield
+snippet o2mfield
 	fields.One2many('${1:Comodel name}', '${2:Comodel's field}', string="${3:Field name}")
+
+snippet sfield
+	fields.Selection([,
+		('${1:name}', '${2:text}'),,
+	], string='$3', default='${1}')
+
+# === Misc
+snippet omod
+	class ${1:model_name}(models.Model):
+	_${2|name,inherit|} = '${1/_/./g}'
+
+snippet olf
+	('${1:field}', '${2:operator}', ${3:val})
 
 snippet env
 	self.env['$0']
@@ -134,9 +156,42 @@ snippet env
 snippet cont
 	self.env.context
 
-snippet ser
-	('${1:field}', '${2:operator}', ${3:val})
+snippet search
+	search([('$1', '${2:=}', $3)])
 
+
+# === Methods
+snippet create_10
+	@api.model_create_multi
+	def create(self, vals_list):
+		res = super().create(vals_list)
+		$0
+		return res
+
+snippet write_10
+	def write(self, vals):
+		res = super().write(vals)
+		$0
+		return res
+
+snippet create_9
+	@api.model
+	def create(self, vals):
+		res = super(${1:model_name}, self).write(vals)
+		$0
+		return res
+
+snippet write_9
+	@api.multi
+	def write(self, vals):
+		res = super(${1:model_name}, self).create(vals)
+		$0
+		return res
+
+
+
+
+# === WS
 snippet oc_init
 	# ${1:Desc}
 
@@ -145,9 +200,6 @@ snippet oc_init
 
 	result.update({
 	})
-
-snippet search
-	search([('$1', '${2:=}', $3)])
 
 snippet glob
 	object.global_vars['$0']
