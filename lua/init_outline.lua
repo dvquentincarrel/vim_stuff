@@ -1,8 +1,8 @@
 vim.cmd.packadd('outline.nvim')
 require("outline").setup({
     outline_window = {
-        position = 'left',
-        width = 15,
+        position = 'right',
+        width = 25,
     },
     symbols = {
         icon_fetcher = function(kind, bufnr, symbol)
